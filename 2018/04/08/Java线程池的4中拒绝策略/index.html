@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>java线程池的4种拒绝模式 | lyyourc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">四月 08 2018</p>
+  </section>
+
+  <section class="article-entry">
+    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在线程池的使用中，当任务数量超出之前设定的线程池大小（既：核心线程数+等待队列大小），系统需要采取相应策略来应对新进来的任务。当前java线程池有4种不同的策略来应对这种情况。</p>
+<h3 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h3><h4 id="1-AbortPolicy"><a href="#1-AbortPolicy" class="headerlink" title="1.AbortPolicy"></a>1.AbortPolicy</h4><blockquote>
+<ul>
+<li>In the default {@link ThreadPoolExecutor.AbortPolicy}, the<ul>
+<li>handler throws a runtime {@link RejectedExecutionException} upon</li>
+<li>rejection.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>通过该段注释可以知道，该策略是线程池的<strong>默认策略</strong>。该策略的机制是，通过抛出一个RejectedExecutionException异常来拒绝新添加的任务。</p>
+<pre><code>/**
+ * A handler for rejected tasks that throws a
+ * {@code RejectedExecutionException}.
+ */
+public static class AbortPolicy implements RejectedExecutionHandler {
+    /**
+     * Creates an {@code AbortPolicy}.
+     */
+    public AbortPolicy() { }
+
+    /**
+     * Always throws RejectedExecutionException.
+     *
+     * @param r the runnable task requested to be executed
+     * @param e the executor attempting to execute this task
+     * @throws RejectedExecutionException always
+     */
+    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+        throw new RejectedExecutionException(&quot;Task &quot; + r.toString() +
+                                             &quot; rejected from &quot; +
+                                             e.toString());
+    }
+}
+</code></pre><p>只是简单的抛出一个RejectedExecutionException异常，异常中的信息是任务名和拒绝它的线程池。</p>
+<h4 id="2-CallerRunsPolicy"><a href="#2-CallerRunsPolicy" class="headerlink" title="2.CallerRunsPolicy"></a>2.CallerRunsPolicy</h4><blockquote>
+<ul>
+<li>In {@link ThreadPoolExecutor.CallerRunsPolicy}, the thread</li>
+<li>that invokes {@code execute} itself runs the task. This provides a</li>
+<li>simple feedback control mechanism that will slow down the rate that</li>
+<li>new tasks are submitted.</li>
+</ul>
+</blockquote>
+<p>该策略直接使用当前线程来运行任务的run方法，这种方式会降低新任务的执行率。看下相应的代码：</p>
+<pre><code>public static class CallerRunsPolicy implements RejectedExecutionHandler {
+    /**
+     * Creates a {@code CallerRunsPolicy}.
+     */
+    public CallerRunsPolicy() { }
+
+    /**
+     * Executes task r in the caller&apos;s thread, unless the executor
+     * has been shut down, in which case the task is discarded.
+     *
+     * @param r the runnable task requested to be executed
+     * @param e the executor attempting to execute this task
+     */
+    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+        if (!e.isShutdown()) {
+            r.run();
+        }
+    }
+}
+</code></pre><p>当过多的新任务来时，回调用rejectedExecution方法，该方法直接在任务调用者（也就是执行executor.execute(r)）所在线程中执行任务的run方法。</p>
+<h4 id="DiscardPolicy"><a href="#DiscardPolicy" class="headerlink" title="DiscardPolicy"></a>DiscardPolicy</h4><blockquote>
+<ul>
+<li>In {@link ThreadPoolExecutor.DiscardPolicy}, a task that<ul>
+<li>cannot be executed is simply dropped.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>通过翻译可知，该策略只是简单的将新任务抛弃，并不会抛出异常。</p>
+<pre><code>/**
+ * A handler for rejected tasks that silently discards the
+ * rejected task.
+ */
+public static class DiscardPolicy implements RejectedExecutionHandler {
+    /**
+     * Creates a {@code DiscardPolicy}.
+     */
+    public DiscardPolicy() { }
+
+    /**
+     * Does nothing, which has the effect of discarding task r.
+     *
+     * @param r the runnable task requested to be executed
+     * @param e the executor attempting to execute this task
+     */
+    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+    }
+}
+</code></pre><p>rejectedExecution方法是空的，不做任何处理。</p>
+<h4 id="DiscardOldestPolicy"><a href="#DiscardOldestPolicy" class="headerlink" title="DiscardOldestPolicy"></a>DiscardOldestPolicy</h4><blockquote>
+<ul>
+<li>In {@link ThreadPoolExecutor.DiscardOldestPolicy}, if the</li>
+<li>executor is not shut down, the task at the head of the work queue</li>
+<li>is dropped, and then execution is retried (which can fail again,</li>
+<li>causing this to be repeated.)</li>
+</ul>
+</blockquote>
+<p>该策略会将等待队列中等待最久的一个出队列，而后再次执行execute(r)方法，但是执行execute(r)方法时会有再次失败的可能，因为这里的出队列和进队列不是原子性的，在多线程环境下还是会存在别的线程先执行了execute(r)方法，将相应的任务push进等待队列中。</p>
+<pre><code>public static class DiscardOldestPolicy implements RejectedExecutionHandler {
+    /**
+     * Creates a {@code DiscardOldestPolicy} for the given executor.
+     */
+    public DiscardOldestPolicy() { }
+
+    /**
+     * Obtains and ignores the next task that the executor
+     * would otherwise execute, if one is immediately available,
+     * and then retries execution of task r, unless the executor
+     * is shut down, in which case task r is instead discarded.
+     *
+     * @param r the runnable task requested to be executed
+     * @param e the executor attempting to execute this task
+     */
+    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+        if (!e.isShutdown()) {
+            e.getQueue().poll();
+            e.execute(r);
+        }
+    }
+}
+</code></pre>
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> lyyourc </p>
+      <p class="subtitle"> You Are The JavaScript In My HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="简介"><a href="#简"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2018/04/08/Java线程池的4中拒绝策略/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>

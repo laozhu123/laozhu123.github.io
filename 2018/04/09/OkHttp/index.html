@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>OkHttp | lyyourc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/04/09/OkHttp/">OkHttp</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">四月 09 2018</p>
+  </section>
+
+  <section class="article-entry">
+    <h3 id="一-基础内容"><a href="#一-基础内容" class="headerlink" title="一.基础内容"></a>一.基础内容</h3><h4 id="1-请求体"><a href="#1-请求体" class="headerlink" title="1.请求体"></a>1.请求体</h4><p>访问协议, 响应码, 描述信息, 响应头, 响应体</p>
+<h4 id="2-使用代码"><a href="#2-使用代码" class="headerlink" title="2.使用代码"></a>2.使用代码</h4><p>1.get同步和异步方式</p>
+<pre><code>   Request request = new Request.Builder()
+    .url(&quot;http://publicobject.com/helloworld.txt&quot;)
+    .build();
+
+Response response = client.newCall(request).execute();
+
+client.newCall(request).enqueue(new Callback() {
+  @Override public void onFailure(Request request, Throwable throwable) {
+
+  }
+
+  @Override public void onResponse(Response response) throws IOException {
+
+  }
+});
+</code></pre><p>2.post方式提交string</p>
+<pre><code>String postBody = &quot;&quot;
+    + &quot;Releases\n&quot;
+    + &quot;--------\n&quot;
+    + &quot;\n&quot;
+    + &quot; * _1.0_ May 6, 2013\n&quot;
+    + &quot; * _1.1_ June 15, 2013\n&quot;
+    + &quot; * _1.2_ August 11, 2013\n&quot;;
+
+Request request = new Request.Builder()
+    .url(&quot;https://api.github.com/markdown/raw&quot;)
+    .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody))
+    .build();
+
+Response response = client.newCall(request).execute();
+</code></pre><p>3.post方式提交流</p>
+<p>以流的方式POST提交请求体. 请求体的内容由流写入产生. 这个例子是流直接写入Okio的BufferedSink. 你的程序可能会使用OutputStream, 你可以使用BufferedSink.outputStream()来获取. OkHttp的底层对流和字节的操作都是基于Okio库, Okio库也是Square开发的另一个IO库, 填补I/O和NIO的空缺, 目的是提供简单便于使用的接口来操作IO.</p>
+<pre><code>RequestBody requestBody = new RequestBody() {
+  @Override public MediaType contentType() {
+    return MEDIA_TYPE_MARKDOWN;
+  }
+
+  @Override public void writeTo(BufferedSink sink) throws IOException {
+    sink.writeUtf8(&quot;Numbers\n&quot;);
+    sink.writeUtf8(&quot;-------\n&quot;);
+    for (int i = 2; i &lt;= 997; i++) {
+      sink.writeUtf8(String.format(&quot; * %s = %s\n&quot;, i, factor(i)));
+    }
+  }
+
+  private String factor(int n) {
+    for (int i = 2; i &lt; n; i++) {
+      int x = n / i;
+      if (x * i == n) return factor(x) + &quot; × &quot; + i;
+    }
+    return Integer.toString(n);
+  }
+};
+</code></pre><p>4.Post方式提交文件</p>
+<pre><code>File file = new File(&quot;README.md&quot;);
+RequestBody formBody=RequestBody.create(MEDIA_TYPE_MARKDOWN, file)
+</code></pre><p>5.Post方式提交表单</p>
+<pre><code>RequestBody formBody = new FormBody.Builder()
+    .add(&quot;search&quot;, &quot;Jurassic Park&quot;)
+    .build();
+</code></pre><p>6.Post方式提交分块请求</p>
+<p>MultipartBody.Builder可以构建复杂的请求体, 与HTML文件上传形式兼容. 多块请求体中每块请求都是一个请求体, 可以定义自己的请求头. 这些请求头可以用来描述这块请求, 例如它的Content-Disposition. 如果Content-Length和Content-Type可用的话, 他们会被自动添加到请求头中.</p>
+<pre><code>RequestBody requestBody = new MultipartBody.Builder()
+    .setType(MultipartBody.FORM)
+    .addFormDataPart(&quot;title&quot;, &quot;Square Logo&quot;)
+    .addFormDataPart(&quot;image&quot;, &quot;logo-square.png&quot;,
+        RequestBody.create(MEDIA_TYPE_PNG, new File(&quot;website/static/logo-square.png&quot;)))
+    .build();
+
+Request request = new Request.Builder()
+    .header(&quot;Authorization&quot;, &quot;Client-ID &quot; + IMGUR_CLIENT_ID)
+    .url(&quot;https://api.imgur.com/3/image&quot;)
+    .post(requestBody)
+    .build();
+
+Response response = client.newCall(request).execute();
+</code></pre><p>7.设置请求头</p>
+<pre><code>Request request = new Request.Builder()
+    .url(&quot;https://api.github.com/repos/square/okhttp/issues&quot;)
+    .header(&quot;User-Agent&quot;, &quot;OkHttp Headers.java&quot;)
+    .addHeader(&quot;Accept&quot;, &quot;application/json; q=0.5&quot;)
+    .addHeader(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;)
+    .build();
+</code></pre><p>8.使用Gson来解析JSON响应</p>
+<pre><code>private final Gson gson = new Gson();
+Gist gist = gson.fromJson(response.body().charStream(), Gist.class);
+</code></pre><p> 9.响应缓存</p>
+<p>大多数程序只需要调用一次new OkHttp(), 在第一次调用时配置好缓存, 然后其他地方只需要调用这个实例就可以了. 否则两个缓存示例互相干扰, 破坏响应缓存, 而且有可能会导致程序崩溃.<br>响应缓存使用HTTP头作为配置. 你可以在请求头中添加Cache-Control: max-stale=3600 , OkHttp缓存会支持. 你的服务通过响应头确定响应缓存多长时间, 例如使用Cache-Control: max-age=9600.</p>
+<pre><code>int cacheSize = 10 * 1024 * 1024; // 10 MiB
+Cache cache = new Cache(cacheDirectory, cacheSize);
+
+client = new OkHttpClient();
+client.setCache(cache);
+</code></pre><p>10.Force a Network Response or Cache</p>
+<pre><code>connection.addRequestProperty(&quot;Cache-Control&quot;, &quot;no-cache&quot;);
+connection.addRequestProperty(&quot;Cache-Control&quot;, &quot;only-if-cached&quot;);
+InputStream cached = connection.getInputStream();
+</code></pre><p>11.取消一个Call</p>
+<p>使用Call.cancel()可以立即停止掉一个正在执行的call. 如果一个线程正在写请求或者读响应, 将会引发IOException. 当call没有必要的时候, 使用这个api可以节约网络资源. 例如当用户离开一个应用时, 不管同步还是异步的call都可以取消.<br>你可以通过tags来同时取消多个请求. 当你构建一请求时, 使用RequestBuilder.tag(tag)来分配一个标签, 之后你就可以用OkHttpClient.cancel(tag)来取消所有带有这个tag的call.</p>
+<p>12.超时</p>
+<p>没有响应时使用超时结束call. 没有响应的原因可能是客户点链接问题、服务器可用性问题或者这之间的其他东西. OkHttp支持连接超时, 读取超时和写入超时.</p>
+<pre><code>client = new OkHttpClient.Builder()
+    .connectTimeout(10, TimeUnit.SECONDS)
+    .writeTimeout(10, TimeUnit.SECONDS)
+    .readTimeout(30, TimeUnit.SECONDS)
+    .build();
+</code></pre><p>13.每个Call的设置不同</p>
+<pre><code>private final OkHttpClient client = new OkHttpClient();
+
+public void run() throws Exception {
+    Request request = new Request.Builder()
+      .url(&quot;http://httpbin.org/delay/1&quot;) // This URL is served with a 1 second delay.
+      .build();
+
+    try {
+      // Copy to customize OkHttp for this request.
+      OkHttpClient copy = client.newBuilder()
+          .readTimeout(500, TimeUnit.MILLISECONDS)
+          .build();
+
+      Response response = copy.newCall(request).execute();
+      System.out.println(&quot;Response 1 succeeded: &quot; + response);
+    } catch (IOException e) {
+      System.out.println(&quot;Response 1 failed: &quot; + e);
+    }
+
+    try {
+      // Copy to customize OkHttp for this request.
+      OkHttpClient copy = client.newBuilder()
+          .readTimeout(3000, TimeUnit.MILLISECONDS)
+          .build();
+
+      Response response = copy.newCall(request).execute();
+      System.out.println(&quot;Response 2 succeeded: &quot; + response);
+    } catch (IOException e) {
+      System.out.println(&quot;Response 2 failed: &quot; + e);
+    }
+}
+</code></pre><h3 id="二-源码解析"><a href="#二-源码解析" class="headerlink" title="二.源码解析"></a>二.源码解析</h3><p> 1.OkHttpClient的内容</p>
+<pre><code>public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
+    public OkHttpClient() {
+       this(new Builder());
+    }
+    OkHttpClient(Builder builder) {
+    this.dispatcher = builder.dispatcher;
+    this.proxy = builder.proxy;
+    this.protocols = builder.protocols;
+    this.connectionSpecs = builder.connectionSpecs;
+    this.interceptors = Util.immutableList(builder.interceptors);
+    this.networkInterceptors = Util.immutableList(builder.networkInterceptors);
+    this.eventListenerFactory = builder.eventListenerFactory;
+    this.proxySelector = builder.proxySelector;
+    this.cookieJar = builder.cookieJar;
+    this.cache = builder.cache;
+    this.internalCache = builder.internalCache;
+    this.socketFactory = builder.socketFactory;
+
+    boolean isTLS = false;
+    ......
+
+    this.hostnameVerifier = builder.hostnameVerifier;
+    this.certificatePinner = builder.certificatePinner.withCertificateChainCleaner(
+        certificateChainCleaner);
+    this.proxyAuthenticator = builder.proxyAuthenticator;
+    this.authenticator = builder.authenticator;
+    this.connectionPool = builder.connectionPool;
+    this.dns = builder.dns;
+    this.followSslRedirects = builder.followSslRedirects;
+    this.followRedirects = builder.followRedirects;
+    this.retryOnConnectionFailure = builder.retryOnConnectionFailure;
+    this.connectTimeout = builder.connectTimeout;
+    this.readTimeout = builder.readTimeout;
+    this.writeTimeout = builder.writeTimeout;
+    this.pingInterval = builder.pingInterval;
+  }
+}
+</code></pre><p>2.Request内容</p>
+<pre><code>Request request = new Request.Builder().url(&quot;url&quot;).build();
+
+
+public final class Request {
+    public Builder() {
+      this.method = &quot;GET&quot;;
+      this.headers = new Headers.Builder();
+    }
+    public Builder url(String url) {
+      ......
+
+      // Silently replace web socket URLs with HTTP URLs.
+      if (url.regionMatches(true, 0, &quot;ws:&quot;, 0, 3)) {
+        url = &quot;http:&quot; + url.substring(3);
+      } else if (url.regionMatches(true, 0, &quot;wss:&quot;, 0, 4)) {
+        url = &quot;https:&quot; + url.substring(4);
+      }
+
+      HttpUrl parsed = HttpUrl.parse(url);
+      ......
+      return url(parsed);
+    }
+    public Request build() {
+      ......
+      return new Request(this);
+    }
+}
+</code></pre><p>3.newCall( Request)</p>
+<pre><code>public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
+   @Override 
+   public Call newCall(Request request) {
+    return new RealCall(this, request, false /* for web socket */);
+   }
+}
+</code></pre><p>RealCall实现了Call.Factory接口创建了一个RealCall的实例，而RealCall是Call接口的实现。</p>
+<p>4.异步请求</p>
+<pre><code>final class RealCall implements Call {
+   @Override 
+   public void enqueue(Callback responseCallback) {
+   synchronized (this) {
+   if (executed) throw new IllegalStateException(&quot;Already Executed&quot;);
+      executed = true;
+   }
+    captureCallStackTrace();
+    client.dispatcher().enqueue(new AsyncCall(responseCallback));
+  }
+}
+</code></pre><p>由以上源码得知：</p>
+<p>1） 检查这个 call 是否已经被执行了，每个 call 只能被执行一次，如果想要一个完全一样的 call，可以利用 call#clone 方法进行克隆。</p>
+<p>2）利用 client.dispatcher().enqueue(this) 来进行实际执行，dispatcher 是刚才看到的 OkHttpClient.Builder 的成员之一</p>
+<p>3）AsyncCall是RealCall的一个内部类并且继承NamedRunnable，那么首先看NamedRunnable类是什么样的，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public abstract class NamedRunnable implements Runnable &#123;</span><br><span class="line">  ......</span><br><span class="line"></span><br><span class="line">  @Override </span><br><span class="line">  public final void run() &#123;</span><br><span class="line">   ......</span><br><span class="line">    try &#123;</span><br><span class="line">      execute();</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  protected abstract void execute();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而后在其execute（）方法中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@Override protected void execute() &#123;</span><br><span class="line">      boolean signalledCallback = false;</span><br><span class="line">      try &#123;</span><br><span class="line">        Response response = getResponseWithInterceptorChain();</span><br><span class="line">        if (retryAndFollowUpInterceptor.isCanceled()) &#123;</span><br><span class="line">          signalledCallback = true;</span><br><span class="line">          responseCallback.onFailure(RealCall.this, new IOException(&quot;Canceled&quot;));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          signalledCallback = true;</span><br><span class="line">          responseCallback.onResponse(RealCall.this, response);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; catch (IOException e) &#123;</span><br><span class="line">        if (signalledCallback) &#123;</span><br><span class="line">          // Do not signal the callback twice!</span><br><span class="line">          Platform.get().log(INFO, &quot;Callback failure for &quot; + toLoggableString(), e);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          eventListener.callFailed(RealCall.this, e);</span><br><span class="line">          responseCallback.onFailure(RealCall.this, e);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; finally &#123;</span><br><span class="line">        client.dispatcher().finished(this);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>接下来观察getResponseWithInterceptorChain（），该方法就是使用拦截器对请求进行处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Response getResponseWithInterceptorChain() throws IOException &#123;</span><br><span class="line">    // Build a full stack of interceptors.</span><br><span class="line">    List&lt;Interceptor&gt; interceptors = new ArrayList&lt;&gt;();</span><br><span class="line">    interceptors.addAll(client.interceptors());</span><br><span class="line">    interceptors.add(retryAndFollowUpInterceptor);</span><br><span class="line">    interceptors.add(new BridgeInterceptor(client.cookieJar()));</span><br><span class="line">    interceptors.add(new CacheInterceptor(client.internalCache()));</span><br><span class="line">    interceptors.add(new ConnectInterceptor(client));</span><br><span class="line">    if (!forWebSocket) &#123;</span><br><span class="line">      interceptors.addAll(client.networkInterceptors());</span><br><span class="line">    &#125;</span><br><span class="line">    interceptors.add(new CallServerInterceptor(forWebSocket));</span><br><span class="line"></span><br><span class="line">    Interceptor.Chain chain = new RealInterceptorChain(interceptors, null, null, null, 0,</span><br><span class="line">        originalRequest, this, eventListener, client.connectTimeoutMillis(),</span><br><span class="line">        client.readTimeoutMillis(), client.writeTimeoutMillis());</span><br><span class="line"></span><br><span class="line">    return chain.proceed(originalRequest);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>其中CallServerInterceptor是最后一个Interceptor，用于进行网络请求，其他的是可以对头部进行一些处理</p>
+<p>查看chain.proceed(request)方法</p>
+<p>AsyncCall实现了execute方法，首先是调用getResponseWithInterceptorChain()方法获取响应，然后获取成功后，就调用回调的onReponse方法，如果失败，就调用回调的onFailure方法。最后，调用Dispatcher的finished方法。</p>
+<p>关键代码：</p>
+<p>responseCallback.onFailure(RealCall.this, new IOException(“Canceled”));</p>
+<p>和</p>
+<p>responseCallback.onResponse(RealCall.this, response);</p>
+<p>走完这两句代码会进行回调到刚刚我们初始化Okhttp的地方</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> lyyourc </p>
+      <p class="subtitle"> You Are The JavaScript In My HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="一-基础内容"><a href"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2018/04/09/OkHttp/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>

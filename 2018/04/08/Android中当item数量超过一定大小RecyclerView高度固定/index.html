@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Android中当item数量超过一定大小RecyclerView高度固定 | lyyourc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小RecyclerView高度固定</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">四月 08 2018</p>
+  </section>
+
+  <section class="article-entry">
+    <h3 id="Android中当item数量超过一定大小时，将RecyclerView高度固定"><a href="#Android中当item数量超过一定大小时，将RecyclerView高度固定" class="headerlink" title="Android中当item数量超过一定大小时，将RecyclerView高度固定"></a>Android中当item数量超过一定大小时，将RecyclerView高度固定</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><blockquote>
+<p>直接通过LayoutParams来设定相应高度</p>
+</blockquote>
+<pre><code>ViewGroup.LayoutParams lp = rv.getLayoutParams();
+if (list.size() &gt; 4) {
+    lp.height = DensityUtil.dip2px(mContext,32 * 4);
+} else {
+    lp.height = DensityUtil.dip2px(mContext,34 * list.size());
+}
+rv.setLayoutParams(lp);
+</code></pre><p>该方法只适用于item高度固定，在本例中使用34dp来设置相应的item高度，故而可以通过乘上相应的item数来计算RecyclerView的高度。</p>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><blockquote>
+<p>重写LayoutManger的onMeasure方法，这种方式可以获取到各个item的不同高度，从而可以设置变动的高度。</p>
+</blockquote>
+<p><strong>在使用这种方式时，有一点需要注意的是，不要将RecyclerView的android:layout_height属性设置为wrap_content，不然是不会成功的。</strong></p>
+<pre><code>rv.setLayoutManager(new LinearLayoutManager(mContext) {
+                @Override
+                public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state, int widthSpec, int heightSpec) {
+                    int count = state.getItemCount();
+                    if (count &gt; 0) {
+                        int realHeight = 0;
+                        int realWidth = 0;
+                        for(int i = 0;i &lt; count; i++){
+                            View view = recycler.getViewForPosition(0);
+                            if (view != null) {
+                                measureChild(view, widthSpec, heightSpec);
+                                int measuredWidth = View.MeasureSpec.getSize(widthSpec);
+                                int measuredHeight = view.getMeasuredHeight();    
+                                realWidth = realWidth &gt; measuredWidth ? realWidth : measureWidth;
+                                realHeight += measureHeight;            
+                            }
+                            setMeasuredDimension(realWidth, realHeight); 
+                        }                           
+                    } else {
+                    super.onMeasure(recycler, state, widthSpec, heightSpec);
+               }
+           }
+        });
+</code></pre><p>方法中的recycler是一个item的循环使用器，起到对item管理的作用。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> lyyourc </p>
+      <p class="subtitle"> You Are The JavaScript In My HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="Android中当item数量"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>

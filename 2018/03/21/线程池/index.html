@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>线程池原理 | lyyourc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/03/21/线程池/">线程池原理</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">三月 21 2018</p>
+  </section>
+
+  <section class="article-entry">
+    <h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>1.ExecutorService 有 submit( )、shutDown、invokeAll（与submit对应，只是多个callable的集合）</p>
+<p>2.Future future = ExecutorService.submit(new FutureTask(callable));</p>
+<p>2.ThreadPoolExecutor 继承自 ExecutorServcie</p>
+<p>3.Executors 是创建ThreadPoolExecutor的工具类</p>
+<p>4.newCachedThreadPool、newFixedThreadPool、newWorkStealingPool、newScheduledThreadPool、newSingleThreadExecutor、newSingleThreadScheduledExecutor</p>
+<p>5.使用ThreadFactory创建thread</p>
+<p>**When a new task is submitted in method {@link #execute(Runnable)},</p>
+<ul>
+<li>and fewer than corePoolSize threads are running, a new thread is</li>
+<li>created to handle the request, even if other worker threads are</li>
+<li>idle.  If there are more than corePoolSize but less than</li>
+<li>maximumPoolSize threads running, a new thread will be created only</li>
+<li>if the queue is full.  By setting corePoolSize and maximumPoolSize</li>
+<li>the same, you create a fixed-size thread pool. By setting</li>
+<li>maximumPoolSize to an essentially unbounded value such as {@code</li>
+<li>Integer.MAX_VALUE}, you allow the pool to accommodate an arbitrary</li>
+<li>number of concurrent tasks.**</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int c = ctl.get();</span><br><span class="line">if (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">if (addWorker(command, true))</span><br><span class="line">return;</span><br><span class="line">c = ctl.get();</span><br><span class="line">&#125;</span><br><span class="line">if (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">int recheck = ctl.get();</span><br><span class="line">if (! isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">reject(command);</span><br><span class="line">else if (workerCountOf(recheck) == 0)</span><br><span class="line">addWorker(null, false);</span><br><span class="line">&#125;</span><br><span class="line">else if (!addWorker(command, false))</span><br><span class="line">reject(command);</span><br></pre></td></tr></table></figure>
+<p>SynchronousQueue 没有缓冲队列，使用一一配对的方式，take和put搭配使用，有默认是不公平的，也就是后进先出<br>LinkedBlockingQueue 对于maximumPoolSize是没有用的<br>ArrayBlockingQueue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor中有一个控制状态的属性叫ctl，它是一个AtomicInteger类型的变量，它包含两个概念：</span><br><span class="line"></span><br><span class="line">workerCount：表明当前有效的线程数</span><br><span class="line">runState：表明当前线程池的状态，是否处于Running，Shutdown，Stop，Tidying，Terminate五种状态。</span><br><span class="line">为了把这两种状态放到一个int值中保存，代码中限定了workerCount的值是2^29-1，因为还有五种状态需要表示，需要3位才能表示五种状态，所以会有29位来表示workerCount，而剩下的3位来表示当前线程池的状态。</span><br></pre></td></tr></table></figure>
+<h4 id="几种ExecutorService的实现类"><a href="#几种ExecutorService的实现类" class="headerlink" title="几种ExecutorService的实现类"></a>几种ExecutorService的实现类</h4><p>1、newCachedThreadPool<br>初始没有核心线程，最大线程数没有限制，使用同步队列，有60秒的idle时间，当idle时间到了而thread还没有工作的话就讲该thread销毁，线程可重用。<br>These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks.<br>多用于运行大量的短运行周期的异步任务。</p>
+<p>new ThreadPoolExecutor(0, Integer.MAX_VALUE,60L,<br>TimeUnit.SECONDS,<br>new SynchronousQueue<runnable>());</runnable></p>
+<p>2、newFixedThreadPool<br>生成固定数量的核心线程数，最大线程数等于核心线程数<br>Creates a thread pool that reuses a fixed number of threads</p>
+<p>new ThreadPoolExecutor(nThreads, nThreads,<br>0L, TimeUnit.MILLISECONDS,<br>new LinkedBlockingQueue<runnable>());</runnable></p>
+<p>3、newScheduledThreadPool</p>
+<p>进行延迟或周期性调用任务，使用ThreadPoolExecutor进行线程池创建。<br>内部有一个DelayedWorkQueue，该队列同时具有PriorityQueue（优先级大的元素会放到队首）和DelayQueue（如果队列里第一个元素的getDelay返回值大于0，则take调用会阻塞）的功能。<br>将传入的任务封装成ScheduledFutureTask，该类继承FutureTask<br>Creates a thread pool that can schedule commands to run after a given delay, or to execute periodically.</p>
+<p>new ScheduledThreadPoolExecutor(corePoolSize);</p>
+<p>4、newSingleThreadExecutor<br>创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务。如果这个唯一的线程因为异常结束，那么会有一个新的线程替代它。此线程池保证所有任务的执行顺序按照任务的提交顺序执行。</p>
+<p>new FinalizableDelegatedExecutorService<br>(new ThreadPoolExecutor(1, 1,<br>0L, TimeUnit.MILLISECONDS,<br>new LinkedBlockingQueue<runnable>()));</runnable></p>
+<p>5、newSingleThreadScheduledExecutor</p>
+<p>就是前面两者功能的结合</p>
+<p>new DelegatedScheduledExecutorService<br>(new ScheduledThreadPoolExecutor(1));</p>
+<p>6、newWorkStealingPool</p>
+<p>创建持有足够线程的线程池来支持给定的并行级别，并通过使用多个队列，减少竞争，它需要穿一个并行级别的参数，如果不传，则被设定为默认的CPU数量。</p>
+<p>new ForkJoinPool<br>(parallelism,<br>ForkJoinPool.defaultForkJoinWorkerThreadFactory,<br>null, true);</p>
+<p>7、ForkJoinPool</p>
+<p>支持大任务分解成小任务的线程池，这是Java8新增线程池，通常配合ForkJoinTask接口的子类RecursiveAction或RecursiveTask使用。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> lyyourc </p>
+      <p class="subtitle"> You Are The JavaScript In My HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="线程池"><a href="#"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2018/03/21/线程池/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>

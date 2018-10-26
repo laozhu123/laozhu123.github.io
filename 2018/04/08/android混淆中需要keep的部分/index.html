@@ -1,183 +1,480 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>proguard | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="proguard"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>proguard - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/04/08/android混淆中需要keep的部分/">proguard</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">四月 08 2018</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
-<p>Proguard是一个集文件压缩,优化,混淆和校验等功能的工具<br>它检测并删除无用的类,变量,方法和属性<br>它优化字节码并删除无用的指令.<br>它通过将类名,变量名和方法名重命名为无意义的名称实现混淆效果.<br>最后它还校验处理后的代码</p>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/04/08/android混淆中需要keep的部分/">
+                proguard
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-04-08</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android基础学习/">Android基础学习</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h4>简介</h4>
+<blockquote>
+<p>Proguard是一个集文件压缩,优化,混淆和校验等功能的工具
+它检测并删除无用的类,变量,方法和属性
+它优化字节码并删除无用的指令.
+它通过将类名,变量名和方法名重命名为无意义的名称实现混淆效果.
+最后它还校验处理后的代码</p>
 </blockquote>
 <p>保留某个包下面的类以及子包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep public class com.droidyue.com.widget.**</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep public class com.droidyue.com.widget.**</span><br></pre></td></tr></table></figure></p>
 <p>保留所有类中使用otto的public方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Otto</span><br><span class="line">-keepclassmembers class ** &#123;</span><br><span class="line">    @com.squareup.otto.Subscribe public *;</span><br><span class="line">    @com.squareup.otto.Produce public *;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Otto</span><br><span class="line">-keepclassmembers class ** &#123;</span><br><span class="line">    @com.squareup.otto.Subscribe public *;</span><br><span class="line">    @com.squareup.otto.Produce public *;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>保留Contants类的BOOK_NAME属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-keepclassmembers class com.example.admin.proguardsample.Constants &#123;</span><br><span class="line">     public static java.lang.String BOOK_NAME;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="dontwarn"><a href="#dontwarn" class="headerlink" title="-dontwarn"></a>-dontwarn</h3><blockquote>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-keepclassmembers class com.example.admin.proguardsample.Constants &#123;</span><br><span class="line">     public static java.lang.String BOOK_NAME;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3>-dontwarn</h3>
+<blockquote>
 <p>dontwarn是一个和keep可以说是形影不离,尤其是处理引入的library时.</p>
 </blockquote>
 <p>引入的library可能存在一些无法找到的引用和其他问题,在build时可能会发出警告,如果我们不进行处理,通常会导致build中止.因此为了保证build继续,我们需要使用dontwarn处理这些我们无法解决的library的警告.</p>
 <p>比如关闭Twitter sdk的警告,我们可以这样做</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-dontwarn com.twitter.sdk.**</span><br></pre></td></tr></table></figure>
-<h3 id="哪些不应该混淆"><a href="#哪些不应该混淆" class="headerlink" title="哪些不应该混淆"></a>哪些不应该混淆</h3><h4 id="反射中使用的元素"><a href="#反射中使用的元素" class="headerlink" title="反射中使用的元素"></a>反射中使用的元素</h4><blockquote>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-dontwarn com.twitter.sdk.**</span><br></pre></td></tr></table></figure></p>
+<h3>哪些不应该混淆</h3>
+<h4>反射中使用的元素</h4>
+<blockquote>
 <p>如果一些被混淆使用的元素(属性,方法,类,包名等)进行了混淆,可能会出现问题,如NoSuchFiledException或者NoSuchMethodException等.</p>
 <p>想要验证,我们需要看一看混淆的映射文件,文件名为mapping.txt,该文件保存着混淆前后的映射关系.</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">com.example.admin.proguardsample.Constants -&gt; com.example.admin.proguardsample.a:</span><br><span class="line">    java.lang.String BOOK_NAME -&gt; a</span><br><span class="line">    void &lt;init&gt;() -&gt; &lt;init&gt;</span><br><span class="line">    void &lt;clinit&gt;() -&gt; &lt;clinit&gt;</span><br><span class="line">com.example.admin.proguardsample.MainActivity -&gt; com.example.admin.proguardsample.MainActivity:</span><br><span class="line">    void &lt;init&gt;() -&gt; &lt;init&gt;</span><br><span class="line">    void onCreate(android.os.Bundle) -&gt; onCreate</span><br></pre></td></tr></table></figure>
-<h4 id="GSON的序列化与反序列化"><a href="#GSON的序列化与反序列化" class="headerlink" title="GSON的序列化与反序列化"></a>GSON的序列化与反序列化</h4><blockquote>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">com.example.admin.proguardsample.Constants -&gt; com.example.admin.proguardsample.a:</span><br><span class="line">    java.lang.String BOOK_NAME -&gt; a</span><br><span class="line">    void &lt;init&gt;() -&gt; &lt;init&gt;</span><br><span class="line">    void &lt;clinit&gt;() -&gt; &lt;clinit&gt;</span><br><span class="line">com.example.admin.proguardsample.MainActivity -&gt; com.example.admin.proguardsample.MainActivity:</span><br><span class="line">    void &lt;init&gt;() -&gt; &lt;init&gt;</span><br><span class="line">    void onCreate(android.os.Bundle) -&gt; onCreate</span><br></pre></td></tr></table></figure></p>
+<h4>GSON的序列化与反序列化</h4>
+<blockquote>
 <p>因为反序列化创建对象本质还是利用反射,会根据json字符串的key作为属性名称,value则对应属性值.</p>
 </blockquote>
-<p><strong>序列化</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Item toSerializeItem = new Item();</span><br><span class="line">toSerializeItem.id = 2;</span><br><span class="line">toSerializeItem.name = &quot;Apple&quot;;</span><br><span class="line">String serializedText = gson.toJson(toSerializeItem);</span><br><span class="line">Log.i(LOGTAG, &quot;testGson serializedText=&quot; + serializedText);</span><br></pre></td></tr></table></figure></p>
+<p><strong>序列化</strong>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Item toSerializeItem = new Item();</span><br><span class="line">toSerializeItem.id = 2;</span><br><span class="line">toSerializeItem.name = &quot;Apple&quot;;</span><br><span class="line">String serializedText = gson.toJson(toSerializeItem);</span><br><span class="line">Log.i(LOGTAG, &quot;testGson serializedText=&quot; + serializedText);</span><br></pre></td></tr></table></figure></p>
 <p><strong>反序列化</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Gson gson = new Gson();</span><br><span class="line">Item item = gson.fromJson(&quot;&#123;\&quot;id\&quot;:1, \&quot;name\&quot;:\&quot;Orange\&quot;&#125;&quot;, Item.class);</span><br><span class="line">Log.i(LOGTAG, &quot;testGson item.id=&quot; + item.id + &quot;;item.name=&quot; + item.name);</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Gson gson = new Gson();</span><br><span class="line">Item item = gson.fromJson(&quot;&#123;\&quot;id\&quot;:1, \&quot;name\&quot;:\&quot;Orange\&quot;&#125;&quot;, Item.class);</span><br><span class="line">Log.i(LOGTAG, &quot;testGson item.id=&quot; + item.id + &quot;;item.name=&quot; + item.name);</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>如何解决<blockquote>
-<p>1.将序列化和反序列化的类排除混淆<br>2.使用@SerializedName注解字段</p>
-</blockquote>
-</li>
+<li>如何解决</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Item &#123;</span><br><span class="line">    @SerializedName(&quot;name&quot;)</span><br><span class="line">    public String name;</span><br><span class="line">    @SerializedName(&quot;id&quot;)</span><br><span class="line">    public int id;</span><br></pre></td></tr></table></figure>
-<h4 id="枚举也不要混淆"><a href="#枚举也不要混淆" class="headerlink" title="枚举也不要混淆"></a>枚举也不要混淆</h4><p>枚举使用起来很简单,如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public enum Day &#123;</span><br><span class="line">    MONDAY,</span><br><span class="line">    TUESDAY,</span><br><span class="line">    WEDNESDAY,</span><br><span class="line">    THURSDAY,</span><br><span class="line">    FRIDAY,</span><br><span class="line">    SATURDAY,</span><br><span class="line">    SUNDAY</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.将序列化和反序列化的类排除混淆
+2.使用@SerializedName注解字段</p>
+</blockquote>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Item &#123;</span><br><span class="line">    @SerializedName(&quot;name&quot;)</span><br><span class="line">    public String name;</span><br><span class="line">    @SerializedName(&quot;id&quot;)</span><br><span class="line">    public int id;</span><br></pre></td></tr></table></figure></p>
+<h4>枚举也不要混淆</h4>
+<p>枚举使用起来很简单,如下</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public enum Day &#123;</span><br><span class="line">    MONDAY,</span><br><span class="line">    TUESDAY,</span><br><span class="line">    WEDNESDAY,</span><br><span class="line">    THURSDAY,</span><br><span class="line">    FRIDAY,</span><br><span class="line">    SATURDAY,</span><br><span class="line">    SUNDAY</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>默认的Proguard配置已经处理了枚举相关的keep操作.</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations</span><br><span class="line">-keepclassmembers enum * &#123;</span><br><span class="line">    public static **[] values();</span><br><span class="line">    public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations</span><br><span class="line">-keepclassmembers enum * &#123;</span><br><span class="line">    public static **[] values();</span><br><span class="line">    public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>enum文件编译后产生的class文件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  proguardsample javap  Day</span><br><span class="line">Warning: Binary file Day contains com.example.admin.proguardsample.Day</span><br><span class="line">Compiled from &quot;Day.java&quot;</span><br><span class="line">public final class com.example.admin.proguardsample.Day extends java.lang.Enum&lt;com.example.admin.proguardsample.Day&gt; &#123;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day MONDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day TUESDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day WEDNESDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day THURSDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day FRIDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day SATURDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day SUNDAY;</span><br><span class="line">  public static com.example.admin.proguardsample.Day[] values();</span><br><span class="line">  public static com.example.admin.proguardsample.Day valueOf(java.lang.String);</span><br><span class="line">  static &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="四大组件不建议混淆"><a href="#四大组件不建议混淆" class="headerlink" title="四大组件不建议混淆"></a>四大组件不建议混淆</h4><blockquote>
-<p>四大组件声明必须在manifest中注册,如果混淆后类名更改,而混淆后的类名没有在manifest注册,是不符合Android组件注册机制的.<br>外部程序可能使用组件的字符串类名,如果类名混淆,可能导致出现异常</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  proguardsample javap  Day</span><br><span class="line">Warning: Binary file Day contains com.example.admin.proguardsample.Day</span><br><span class="line">Compiled from &quot;Day.java&quot;</span><br><span class="line">public final class com.example.admin.proguardsample.Day extends java.lang.Enum&lt;com.example.admin.proguardsample.Day&gt; &#123;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day MONDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day TUESDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day WEDNESDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day THURSDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day FRIDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day SATURDAY;</span><br><span class="line">  public static final com.example.admin.proguardsample.Day SUNDAY;</span><br><span class="line">  public static com.example.admin.proguardsample.Day[] values();</span><br><span class="line">  public static com.example.admin.proguardsample.Day valueOf(java.lang.String);</span><br><span class="line">  static &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4>四大组件不建议混淆</h4>
+<blockquote>
+<p>四大组件声明必须在manifest中注册,如果混淆后类名更改,而混淆后的类名没有在manifest注册,是不符合Android组件注册机制的.
+外部程序可能使用组件的字符串类名,如果类名混淆,可能导致出现异常</p>
 </blockquote>
-<h4 id="注解不能混淆"><a href="#注解不能混淆" class="headerlink" title="注解不能混淆"></a>注解不能混淆</h4><blockquote>
+<h4>注解不能混淆</h4>
+<blockquote>
 <p>注解在Android平台中使用的越来越多,常用的有ButterKnife和Otto.很多场景下注解被用作在运行时反射确定一些元素的特征.</p>
+</blockquote>
+<blockquote>
 <p>为了保证注解正常工作,我们不应该对注解进行混淆.Android工程默认的混淆配置已经包含了下面保留注解的配置</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes *Annotation*</span><br></pre></td></tr></table></figure>
-<h4 id="其他不该混淆的"><a href="#其他不该混淆的" class="headerlink" title="其他不该混淆的"></a>其他不该混淆的</h4><blockquote>
-<p>jni调用的java方法<br>java的native方法<br>js调用java的方法<br>第三方库不建议混淆<br>其他和反射相关的一些情况</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes *Annotation*</span><br></pre></td></tr></table></figure></p>
+<h4>其他不该混淆的</h4>
+<blockquote>
+<p>jni调用的java方法
+java的native方法
+js调用java的方法
+第三方库不建议混淆
+其他和反射相关的一些情况</p>
 </blockquote>
-<p>stacktrace的恢复<br>Proguard混淆带来了很多好处,但是也会导致我们收集到的崩溃的stacktrace变得更加难以读懂,好在有补救的措施,这里就介绍一个工具,retrace,用来将混淆后的stacktrace还原成混淆之前的信息.</p>
-<p>retrace脚本<br>Android 开发环境默认带着retrace脚本,一般情况下路径为./tools/proguard/bin/retrace.sh</p>
-<p>mapping映射表<br>Proguard进行混淆之后,会生成一个映射表,文件名为mapping.txt,我们可以使用find工具在Project下查找</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -name mapping.txt</span><br><span class="line">./app/build/outputs/mapping/release/mapping.txt</span><br></pre></td></tr></table></figure>
-<p>一个崩溃stacktrace信息<br>一个原始的崩溃信息是这样的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">E/AndroidRuntime(24006): Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &apos;int android.graphics.Bitmap.getWidth()&apos; on a null object reference</span><br><span class="line">E/AndroidRuntime(24006):    at com.example.admin.proguardsample.a.a(Utils.java:10)</span><br><span class="line">E/AndroidRuntime(24006):    at com.example.admin.proguardsample.MainActivity.onCreate(MainActivity.java:22)</span><br><span class="line">E/AndroidRuntime(24006):    at android.app.Activity.performCreate(Activity.java:6106)</span><br><span class="line">E/AndroidRuntime(24006):    at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</span><br><span class="line">E/AndroidRuntime(24006):    at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2566)</span><br><span class="line">E/AndroidRuntime(24006):    ... 10 more</span><br></pre></td></tr></table></figure>
+<p>stacktrace的恢复
+Proguard混淆带来了很多好处,但是也会导致我们收集到的崩溃的stacktrace变得更加难以读懂,好在有补救的措施,这里就介绍一个工具,retrace,用来将混淆后的stacktrace还原成混淆之前的信息.</p>
+<p>retrace脚本
+Android 开发环境默认带着retrace脚本,一般情况下路径为./tools/proguard/bin/retrace.sh</p>
+<p>mapping映射表
+Proguard进行混淆之后,会生成一个映射表,文件名为mapping.txt,我们可以使用find工具在Project下查找</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -name mapping.txt</span><br><span class="line">./app/build/outputs/mapping/release/mapping.txt</span><br></pre></td></tr></table></figure></p>
+<p>一个崩溃stacktrace信息
+一个原始的崩溃信息是这样的.</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">E/AndroidRuntime(24006): Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &apos;int android.graphics.Bitmap.getWidth()&apos; on a null object reference</span><br><span class="line">E/AndroidRuntime(24006):    at com.example.admin.proguardsample.a.a(Utils.java:10)</span><br><span class="line">E/AndroidRuntime(24006):    at com.example.admin.proguardsample.MainActivity.onCreate(MainActivity.java:22)</span><br><span class="line">E/AndroidRuntime(24006):    at android.app.Activity.performCreate(Activity.java:6106)</span><br><span class="line">E/AndroidRuntime(24006):    at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</span><br><span class="line">E/AndroidRuntime(24006):    at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2566)</span><br><span class="line">E/AndroidRuntime(24006):    ... 10 more</span><br></pre></td></tr></table></figure></p>
 <p>对上面的信息处理,去掉E/AndroidRuntime(24006):这些字符串retrace才能正常工作.得到的字符串是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &apos;int android.graphics.Bitmap.getWidth()&apos; on a null object reference</span><br><span class="line">at com.example.admin.proguardsample.a.a(Utils.java:10)</span><br><span class="line">at com.example.admin.proguardsample.MainActivity.onCreate(MainActivity.java:22)</span><br><span class="line">at android.app.Activity.performCreate(Activity.java:6106)</span><br><span class="line">at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</span><br><span class="line">at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2566)</span><br><span class="line">... 10 more</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &apos;int android.graphics.Bitmap.getWidth()&apos; on a null object reference</span><br><span class="line">at com.example.admin.proguardsample.a.a(Utils.java:10)</span><br><span class="line">at com.example.admin.proguardsample.MainActivity.onCreate(MainActivity.java:22)</span><br><span class="line">at android.app.Activity.performCreate(Activity.java:6106)</span><br><span class="line">at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</span><br><span class="line">at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2566)</span><br><span class="line">... 10 more</span><br></pre></td></tr></table></figure></p>
 <p>将上面的stacktrace保存成一个文本文件,比如名称为npe_stacktrace.txt.</p>
 <p>开搞</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./tools/proguard/bin/retrace.sh   /Users/admin/Downloads/ProguardSample/app/build/outputs/mapping/release/mapping.txt /tmp/npe_stacktrace.txt</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./tools/proguard/bin/retrace.sh   /Users/admin/Downloads/ProguardSample/app/build/outputs/mapping/release/mapping.txt /tmp/npe_stacktrace.txt</span><br></pre></td></tr></table></figure></p>
 <p>得到的易读的stacktrace是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &apos;int android.graphics.Bitmap.getWidth()&apos; on a null object reference</span><br><span class="line">at com.example.admin.proguardsample.Utils.int getBitmapWidth(android.graphics.Bitmap)(Utils.java:10)</span><br><span class="line">at com.example.admin.proguardsample.MainActivity.void onCreate(android.os.Bundle)(MainActivity.java:22)</span><br><span class="line">at android.app.Activity.performCreate(Activity.java:6106)</span><br><span class="line">at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</span><br><span class="line">at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2566)</span><br><span class="line">... 10 more</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NullPointerException: Attempt to invoke virtual method &apos;int android.graphics.Bitmap.getWidth()&apos; on a null object reference</span><br><span class="line">at com.example.admin.proguardsample.Utils.int getBitmapWidth(android.graphics.Bitmap)(Utils.java:10)</span><br><span class="line">at com.example.admin.proguardsample.MainActivity.void onCreate(android.os.Bundle)(MainActivity.java:22)</span><br><span class="line">at android.app.Activity.performCreate(Activity.java:6106)</span><br><span class="line">at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1123)</span><br><span class="line">at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2566)</span><br><span class="line">... 10 more</span><br></pre></td></tr></table></figure></p>
 <p>注意:为了更加容易和高效分析stacktrace,建议保留SourceFile和LineNumber属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes SourceFile,LineNumberTable</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes SourceFile,LineNumberTable</span><br></pre></td></tr></table></figure></p>
 
-  </section>
-</article>
+    </div>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text= id="简介"><a href="#简"
->
-  Tweet
-</a>
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a>
+        </div>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    <!-- Comments -->
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+</div>
+        </section>
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
-
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2018/04/08/android混淆中需要keep的部分/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>

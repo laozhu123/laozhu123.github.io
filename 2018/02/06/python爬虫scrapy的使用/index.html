@@ -1,62 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>python爬虫scrapy的使用 | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="python爬虫scrapy的使用"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>python爬虫scrapy的使用 - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/02/06/python爬虫scrapy的使用/">python爬虫scrapy的使用</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">二月 06 2018</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <p><img src="http://op0dvu7tu.bkt.clouddn.com/helo005.jpg" alt="enter image description here"></p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>本文将记录一次使用scrapy进行网页数据爬取的经历。</strong></p>
-<h3 id="环境与安装"><a href="#环境与安装" class="headerlink" title="环境与安装"></a>环境与安装</h3><p><strong>环境</strong></p>
-<p>python – 3.6.1（区别python2和python3就行了，两者的语法在有些地方有区别）<br>scrapy – 1.5.0 （这个是根据你的python版本来选择的）<br>twisted<br>wheel<br>pywin32</p>
-<p><strong>安装python</strong><br>这里就不再赘述了，无非就是到python的官方网站下载相应安装包安装。如果要看的话，可以看blog里的另外一篇文章，也就是《python爬妹子》这一篇，或者可以看这个网址<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001374738150500472fd5785c194ebea336061163a8a974000" target="_blank" rel="noopener">python安装</a></p>
-<p><strong>安装scrapy</strong><br>一般使用windows电脑安装时会出现安装失败的情况，故而我们需要到<a href="https://pypi.python.org/pypi/Scrapy/1.5.0" target="_blank" rel="noopener">这个网站</a>下载相应的版本，来进行安装在安装之前我们还需要先安装wheel只需要在cmd中敲入：</p>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/02/06/python爬虫scrapy的使用/">
+                python爬虫scrapy的使用
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-02-06</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/python/">python</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p><img src="http://op0dvu7tu.bkt.clouddn.com/helo005.jpg" alt="enter image description here"></p>
+<h3>简介</h3>
+<p><strong>本文将记录一次使用scrapy进行网页数据爬取的经历。</strong></p>
+<h3>环境与安装</h3>
+<p><strong>环境</strong></p>
+<p>python -- 3.6.1（区别python2和python3就行了，两者的语法在有些地方有区别）
+scrapy -- 1.5.0 （这个是根据你的python版本来选择的）
+twisted
+wheel
+pywin32</p>
+<p><strong>安装python</strong>
+这里就不再赘述了，无非就是到python的官方网站下载相应安装包安装。如果要看的话，可以看blog里的另外一篇文章，也就是《python爬妹子》这一篇，或者可以看这个网址<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001374738150500472fd5785c194ebea336061163a8a974000" target="_blank" rel="noopener">python安装</a></p>
+<p><strong>安装scrapy</strong>
+一般使用windows电脑安装时会出现安装失败的情况，故而我们需要到<a href="https://pypi.python.org/pypi/Scrapy/1.5.0" target="_blank" rel="noopener">这个网站</a>下载相应的版本，来进行安装在安装之前我们还需要先安装wheel只需要在cmd中敲入：</p>
 <pre><code>pip install wheel
-</code></pre><p><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153010.png" alt="|center"></p>
-<p>而后我们到<a href="https://pypi.python.org/pypi/Scrapy/1.5.0下载相应的scrapy的.whl文件" target="_blank" rel="noopener">https://pypi.python.org/pypi/Scrapy/1.5.0下载相应的scrapy的.whl文件</a><br><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153247.png" alt="enter image description here"></p>
-<p><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153547.png" alt="|center"><br>经过上面两部我们就将scrapy安装到了本地，但是有没有发现还是无法运行，因为还有<strong>pywin32 和twisted没有安装</strong>故而我们继续到<a href="https://pypi.python.org/pypi/pywin32/222下载相应的的.whl文件进行安装" target="_blank" rel="noopener">https://pypi.python.org/pypi/pywin32/222下载相应的的.whl文件进行安装</a><br><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153939.png" alt="pywin32"><br><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207154852.png" alt="|center"><br>同样使用命令行进行安装</p>
+</code></pre>
+<p><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153010.png" alt="|center"></p>
+<p>而后我们到https://pypi.python.org/pypi/Scrapy/1.5.0下载相应的scrapy的.whl文件
+<img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153247.png" alt="enter image description here"></p>
+<p><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153547.png" alt="|center">
+经过上面两部我们就将scrapy安装到了本地，但是有没有发现还是无法运行，因为还有<strong>pywin32 和twisted没有安装</strong>故而我们继续到https://pypi.python.org/pypi/pywin32/222下载相应的的.whl文件进行安装
+<img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207153939.png" alt="pywin32">
+<img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207154852.png" alt="|center">
+同样使用命令行进行安装</p>
 <pre><code>pip install pywin32-222-cp36-cp36m-win_amd64.whl
 pip install Twisted-17.9.0-cp27-cp27m-win_amd64.whl
-</code></pre><p>安装好这些之后我们就可以来看下scrapy了<br><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207155127.png" alt="|center"></p>
-<h3 id="scrapy初涉"><a href="#scrapy初涉" class="headerlink" title="scrapy初涉"></a>scrapy初涉</h3><p>之前没有接触过的小伙伴可以先看下这个网站的内容<a href="https://doc.scrapy.org/en/latest/intro/tutorial.html" target="_blank" rel="noopener">https://doc.scrapy.org/en/latest/intro/tutorial.html</a></p>
+</code></pre>
+<p>安装好这些之后我们就可以来看下scrapy了
+<img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207155127.png" alt="|center"></p>
+<h3>scrapy初涉</h3>
+<p>之前没有接触过的小伙伴可以先看下这个网站的内容https://doc.scrapy.org/en/latest/intro/tutorial.html</p>
 <p>我们先通过下面命令行创建一个scrapy项目</p>
 <pre><code>scrapy startproject heloScrapy
-</code></pre><p>相应的文件结构如下图所示</p>
+</code></pre>
+<p>相应的文件结构如下图所示</p>
 <p><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207161524.png" alt="|center"></p>
-<p>而后我们在spiders文件夹下创建一个demo.py文件，之后的主要代码都将在该文件内完成。<br>引入scrapy以及相应的request，并命名为demo</p>
+<p>而后我们在spiders文件夹下创建一个demo.py文件，之后的主要代码都将在该文件内完成。
+引入scrapy以及相应的request，并命名为demo</p>
 <pre><code>import scrapy
 from tutorial.items import TutorialItem
 from scrapy.http import Request
@@ -67,37 +219,41 @@ class DmozSpider(scrapy.Spider):
     start_urls = [
     &quot;http://blog.csdn.net/u013687632/article/details/57075514&quot;
     ]
-</code></pre><p>此处在start_urls中设置了相应的初始网址<a href="http://blog.csdn.net/u013687632/article/details/57075514，也就是我们将从该网址出发来爬取相应网页内容，同时我们对于allowed_domains" target="_blank" rel="noopener">http://blog.csdn.net/u013687632/article/details/57075514，也就是我们将从该网址出发来爬取相应网页内容，同时我们对于allowed_domains</a> 的设置使我们只爬取这个域名内的网页。</p>
+</code></pre>
+<p>此处在start_urls中设置了相应的初始网址http://blog.csdn.net/u013687632/article/details/57075514，也就是我们将从该网址出发来爬取相应网页内容，同时我们对于allowed_domains 的设置使我们只爬取这个域名内的网页。</p>
 <p>在设置好以上内容之后，scrapy会将start_urls 网页的内容以response的形式传递给parse函数，下面我们就将对parse函数进行定义</p>
-<pre><code>def parse(self, response):
-    filename = response.url.split(&quot;/&quot;)[-2]
-    with open(filename, &apos;wb&apos;) as f:
+<pre><code>    def parse(self, response):
+        filename = response.url.split(&quot;/&quot;)[-2]
+        with open(filename, 'wb') as f:
+            f.write(response.body)
+        for sel in response.xpath('//ul/li'):
+            item = TutorialItem()
+            item['title'] = sel.xpath('a/text()').extract()
+            item['link'] = sel.xpath('a/@href').extract()
+            item['desc'] = sel.xpath('text()').extract()
+            yield item
+
+            if sel.xpath('a/@href').extract() == '':
+                print('empty')
+            else:
+                if len(sel.xpath('a/@href').extract()) &gt; 0:
+                    self.num = self.num + 1
+
+                    print('helo%s' % (self.num))
+                    yield Request(response.urljoin(sel.xpath('a/@href').extract()[0]), callback=self.parse)
+</code></pre>
+<p>从以上内容可以看出我们的是对网页内人title、link、desc进行了抽取，同时根据link中的内容来进行接下去的网页爬取，其中需要注意的方法有一下几个：</p>
+<pre><code>    with open(filename, 'wb') as f:
         f.write(response.body)
-    for sel in response.xpath(&apos;//ul/li&apos;):
-        item = TutorialItem()
-        item[&apos;title&apos;] = sel.xpath(&apos;a/text()&apos;).extract()
-        item[&apos;link&apos;] = sel.xpath(&apos;a/@href&apos;).extract()
-        item[&apos;desc&apos;] = sel.xpath(&apos;text()&apos;).extract()
-        yield item
-
-        if sel.xpath(&apos;a/@href&apos;).extract() == &apos;&apos;:
-            print(&apos;empty&apos;)
-        else:
-            if len(sel.xpath(&apos;a/@href&apos;).extract()) &gt; 0:
-                self.num = self.num + 1
-
-                print(&apos;helo%s&apos; % (self.num))
-                yield Request(response.urljoin(sel.xpath(&apos;a/@href&apos;).extract()[0]), callback=self.parse)
-</code></pre><p>从以上内容可以看出我们的是对网页内人title、link、desc进行了抽取，同时根据link中的内容来进行接下去的网页爬取，其中需要注意的方法有一下几个：</p>
-<pre><code>with open(filename, &apos;wb&apos;) as f:
-    f.write(response.body)
-</code></pre><p>with as的语法是对于有<em>enter</em>()和<em>exit</em>()方法的对象使用的，这样可以减少我们代码的书写，不让像上面的内容我们就要写出如下的形式：</p>
+</code></pre>
+<p>with as的语法是对于有_enter_()和_exit_()方法的对象使用的，这样可以减少我们代码的书写，不让像上面的内容我们就要写出如下的形式：</p>
 <pre><code>file = open(&quot;/tmp/foo.txt&quot;)
 try:
     data = file.read()
 finally:
     file.close()
-</code></pre><p>然后就是TutorialItem这个类了，该类我们定义在items.py中</p>
+</code></pre>
+<p>然后就是TutorialItem这个类了，该类我们定义在items.py中</p>
 <pre><code>import scrapy
 
 class TutorialItem(scrapy.Item):
@@ -107,88 +263,231 @@ class TutorialItem(scrapy.Item):
     link = scrapy.Field()
     desc = scrapy.Field()
     pass
-</code></pre><p>至于sel.xpath(‘a/text()’)就是用来过滤出我们需要的xml对象了，这个方法是lxml包中的，这个包我们在上一篇文章中已经安装过滤，也就是pip instll lxml，而该方法中的表达式该如何写，这个就要靠自己了，人总是要靠自己的。当然我们也可以看下这篇blog的内容<a href="https://www.cnblogs.com/lei0213/p/7506130.html" target="_blank" rel="noopener">https://www.cnblogs.com/lei0213/p/7506130.html</a></p>
-<p>最后你是不是对yield这个语法很困惑，这个就和生成器相关了，详细内容可以看这个blog <a href="http://python.jobbole.com/83610/，简单来将呢，yield就是一个关键词，类似return" target="_blank" rel="noopener">http://python.jobbole.com/83610/，简单来将呢，yield就是一个关键词，类似return</a>, 不同之处在于，yield返回的是一个生成器。</p>
+</code></pre>
+<p>至于sel.xpath('a/text()')就是用来过滤出我们需要的xml对象了，这个方法是lxml包中的，这个包我们在上一篇文章中已经安装过滤，也就是pip instll lxml，而该方法中的表达式该如何写，这个就要靠自己了，人总是要靠自己的。当然我们也可以看下这篇blog的内容https://www.cnblogs.com/lei0213/p/7506130.html</p>
+<p>最后你是不是对yield这个语法很困惑，这个就和生成器相关了，详细内容可以看这个blog http://python.jobbole.com/83610/，简单来将呢，yield就是一个关键词，类似return, 不同之处在于，yield返回的是一个生成器。</p>
 <p>最后的最后就是下面这段代码了</p>
-<pre><code>yield Request(response.urljoin(sel.xpath(&apos;a/@href&apos;).extract()[0]), callback=self.parse)
-</code></pre><p>它发起了对新的url的请求，并将返回的内容传递给parse进行处理，这就实现了新url的爬取效果。</p>
+<pre><code> yield Request(response.urljoin(sel.xpath('a/@href').extract()[0]), callback=self.parse)
+</code></pre>
+<p>它发起了对新的url的请求，并将返回的内容传递给parse进行处理，这就实现了新url的爬取效果。</p>
 <p>最后我们可以通过cmd输入一些命令来运行程序</p>
 <pre><code>scrapy crawl demo
-</code></pre><p>运行结果如下<br><img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207164936.png" alt="enter image description here"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>使用scrapy能够为我们提供很大的便利，如待爬取队里的建立，以及url去重等都不需要我们去做了，当然最棒的是它有一个扩展包scrapy-redis，通过使用这个包我们可以实现分布式爬取，到时候我们的爬取速度就能够有指数级的提升了（在有多台硬件设备的情况下），而后通过这大量的数据我们就可以进行一些如数据挖掘、机器学习的工作了，是不是很心动。</p>
+</code></pre>
+<p>运行结果如下
+<img src="http://op0dvu7tu.bkt.clouddn.com/%E4%BA%91%E4%B9%8B%E5%AE%B6%E5%9B%BE%E7%89%8720180207164936.png" alt="enter image description here"></p>
+<h3>总结</h3>
+<p>使用scrapy能够为我们提供很大的便利，如待爬取队里的建立，以及url去重等都不需要我们去做了，当然最棒的是它有一个扩展包scrapy-redis，通过使用这个包我们可以实现分布式爬取，到时候我们的爬取速度就能够有指数级的提升了（在有多台硬件设备的情况下），而后通过这大量的数据我们就可以进行一些如数据挖掘、机器学习的工作了，是不是很心动。</p>
 
-  </section>
-</article>
+    </div>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=<img src="http://op0"
->
-  Tweet
-</a>
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/技术/">#技术</a> <a href="/tags/python/">#python</a> <a href="/tags/爬虫/">#爬虫</a>
+        </div>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    <!-- Comments -->
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+</div>
+        </section>
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
-
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2018/02/06/python爬虫scrapy的使用/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>

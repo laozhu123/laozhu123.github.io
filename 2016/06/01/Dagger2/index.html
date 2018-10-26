@@ -1,61 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>Dagger2全面解析 | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Dagger2全面解析"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Dagger2全面解析 - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2016/06/01/Dagger2/">Dagger2全面解析</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">六月 01 2016</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <p><img src="http://op0dvu7tu.bkt.clouddn.com/timg.jpg" alt="enter image description here"></p>
-<h3 id="Dagger2的好处"><a href="#Dagger2的好处" class="headerlink" title="Dagger2的好处"></a>Dagger2的好处</h3><ul>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2016/06/01/Dagger2/">
+                Dagger2全面解析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-06-01</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android基础学习/">Android基础学习</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p><img src="http://op0dvu7tu.bkt.clouddn.com/timg.jpg" alt="enter image description here"></p>
+<h3>Dagger2的好处</h3>
+<ul>
 <li>依赖的注入和配置独立于组件之外。</li>
 <li>因为对象是在一个独立、不耦合的地方初始化，所以当注入抽象方法的时候，我们只需要修改对象的实现方法，而不用大改代码库。</li>
 <li>依赖可以注入到一个组件中：我们可以注入这些依赖的模拟实现，这样使得测试更加简单。</li>
 </ul>
-<h3 id="相关标签"><a href="#相关标签" class="headerlink" title="相关标签"></a>相关标签</h3><p> <strong>@Inject、@Module、@Provide、@Component</strong></p>
+<h3>相关标签</h3>
+<p><strong>@Inject、@Module、@Provide、@Component</strong></p>
 <ul>
-<li><p>@Inject: 通常在需要依赖的地方使用这个注解。换句话说，你用它告诉Dagger这个类或者字段需要依赖注入。这样，Dagger就会构造一个这个类的实例并满足他们的依赖。</p>
+<li>
+<p>@Inject: 通常在需要依赖的地方使用这个注解。换句话说，你用它告诉Dagger这个类或者字段需要依赖注入。这样，Dagger就会构造一个这个类的实例并满足他们的依赖。</p>
 </li>
-<li><p>@Module: Modules类里面的方法专门提供依赖，所以我们定义一个类，用@Module注解，这样Dagger在构造类的实例的时候，就知道从哪里去找到需要的依赖。modules的一个重要特征是它们设计为分区并组合在一起（比如说，在我们的app中可以有多个组成在一起的modules）。</p>
+<li>
+<p>@Module: Modules类里面的方法专门提供依赖，所以我们定义一个类，用@Module注解，这样Dagger在构造类的实例的时候，就知道从哪里去找到需要的依赖。modules的一个重要特征是它们设计为分区并组合在一起（比如说，在我们的app中可以有多个组成在一起的modules）。</p>
 </li>
-<li><p>@Provide: 在modules中，我们定义的方法是用这个注解，以此来告诉Dagger我们想要构造对象并提供这些依赖。</p>
+<li>
+<p>@Provide: 在modules中，我们定义的方法是用这个注解，以此来告诉Dagger我们想要构造对象并提供这些依赖。</p>
 </li>
-<li><p>@Component: Components从根本上来说就是一个注入器，也可以说是@Inject和@Module的桥梁，它的主要作用就是连接这两个部分。 Components可以提供所有定义了的类型的实例，比如：我们必须用@Component注解一个接口然后列出所有的@Modules组成该组件，如果缺失了任何一块都会在编译的时候报错。所有的组件都可以通过它的modules知道依赖的范围。</p>
+<li>
+<p>@Component: Components从根本上来说就是一个注入器，也可以说是@Inject和@Module的桥梁，它的主要作用就是连接这两个部分。 Components可以提供所有定义了的类型的实例，比如：我们必须用@Component注解一个接口然后列出所有的@Modules组成该组件，如果缺失了任何一块都会在编译的时候报错。所有的组件都可以通过它的modules知道依赖的范围。</p>
 </li>
 </ul>
-<h3 id="标签使用方式"><a href="#标签使用方式" class="headerlink" title="标签使用方式"></a>标签使用方式</h3><p><strong>1.@Inject</strong>  </p>
+<h3>标签使用方式</h3>
+<p><strong>1.@Inject</strong></p>
 <pre><code>public class User {  
 
     ....  
@@ -64,13 +204,14 @@
     @Inject  
     public User() {  
     }  
-
+  
     ....  
     ....    
 }  
-</code></pre><hr>
+</code></pre>
+<hr>
 <pre><code>public class MainActivity extends AppCompatActivity {  
-
+	  
     //在依赖类中使用@Inject来注入被依赖类实例
     @Inject  
     User user;  
@@ -78,7 +219,7 @@
     User user2;  
     private TextView tv;  
     private TextView tv2;  
-
+  
     @Override  
     protected void onCreate(Bundle savedInstanceState) {  
         super.onCreate(savedInstanceState);  
@@ -91,12 +232,14 @@
         tv2.setText(user2.toString());  
     }  
 } 
-</code></pre><p><strong>2.@Component</strong></p>
+</code></pre>
+<p><strong>2.@Component</strong></p>
 <pre><code>@Component  
 public interface ActivityComponent {  
     void inject(MainActivity activity);  
 }  
-</code></pre><p><strong>3.@Provider &amp; @Module</strong></p>
+</code></pre>
+<p><strong>3.@Provider &amp; @Module</strong></p>
 <pre><code>@Module  
 public class UserModule {  
     @Provides
@@ -104,33 +247,48 @@ public class UserModule {
         return new User();  
     }  
 }  
-</code></pre><h3 id="注入方式"><a href="#注入方式" class="headerlink" title="注入方式"></a>注入方式</h3><ul>
+</code></pre>
+<h3>注入方式</h3>
+<ul>
 <li>构造方法注入：在类的构造方法前面注释@Inject</li>
 <li>成员变量注入：在类的成员变量（非私有）前面注释@Inject</li>
 <li>函数方法注入：在函数前面注释@Inject</li>
 </ul>
-<h3 id="不同类的关系"><a href="#不同类的关系" class="headerlink" title="不同类的关系"></a>不同类的关系</h3><p><img src="http://or9mw8j7a.bkt.clouddn.com/%E6%9C%AA%E6%A0%87%E9%A2%98-2-%E6%81%A2%E5%A4%8D%E7%9A%84.png" alt="enter image description here"></p>
-<h3 id="编译后的生成文件与原文件及关系图"><a href="#编译后的生成文件与原文件及关系图" class="headerlink" title="编译后的生成文件与原文件及关系图"></a>编译后的生成文件与原文件及关系图</h3><p><strong>原文件</strong><br><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818105449.png" alt="enter image description here"></p>
-<p><strong>生成文件</strong><br><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818105426.png" alt="enter image description here"></p>
-<p><strong>各文件对应关系</strong><br><img src="http://or9mw8j7a.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%90%8E%E5%85%B3%E7%B3%BB%E5%9B%BE.png" alt="enter image description here"></p>
-<h3 id="注入路径"><a href="#注入路径" class="headerlink" title="注入路径"></a>注入路径</h3><p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818112230.png" alt="enter image description here"></p>
+<h3>不同类的关系</h3>
+<p><img src="http://or9mw8j7a.bkt.clouddn.com/%E6%9C%AA%E6%A0%87%E9%A2%98-2-%E6%81%A2%E5%A4%8D%E7%9A%84.png" alt="enter image description here"></p>
+<h3>编译后的生成文件与原文件及关系图</h3>
+<p><strong>原文件</strong>
+<img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818105449.png" alt="enter image description here"></p>
+<p><strong>生成文件</strong>
+<img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818105426.png" alt="enter image description here"></p>
+<p><strong>各文件对应关系</strong>
+<img src="http://or9mw8j7a.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%90%8E%E5%85%B3%E7%B3%BB%E5%9B%BE.png" alt="enter image description here"></p>
+<h3>注入路径</h3>
+<p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818112230.png" alt="enter image description here"></p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818111938.png" alt="enter image description here"></p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818112629.png" alt="enter image description here"></p>
-<h3 id="Scope（用于划分作用域）"><a href="#Scope（用于划分作用域）" class="headerlink" title="@Scope（用于划分作用域）"></a>@Scope（用于划分作用域）</h3><p><strong>javax包中自带的@Singleton,其class如下：</strong></p>
+<h3>@Scope（用于划分作用域）</h3>
+<p><strong>javax包中自带的@Singleton,其class如下：</strong></p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818113850.png" alt="enter image description here"></p>
 <p><strong>用户自己写的</strong></p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818114133.png" alt="enter image description here"></p>
 <p><strong><em>可以看出除了少了@Documented标签外，用户自己写的Scope标签和@Singleton并没有本质的区别</em></strong></p>
-<h4 id="各标签的意义"><a href="#各标签的意义" class="headerlink" title="各标签的意义"></a>各标签的意义</h4><p><strong>@Retention</strong></p>
-<p>Retention(保留)注解说明,这种类型的注解会被保留到那个阶段. 有三个值:<br>1.RetentionPolicy.SOURCE —— 这种类型的Annotations只在源代码级别保留,编译时就会被忽略<br>2.RetentionPolicy.CLASS —— 这种类型的Annotations编译时被保留,在class文件中存在,但JVM将会忽略<br>3.RetentionPolicy.RUNTIME —— 这种类型的Annotations将被JVM保留,所以他们能在运行时被JVM或其他使用反射机制的代码所读取和使用.</p>
+<h4>各标签的意义</h4>
+<p><strong>@Retention</strong></p>
+<p>Retention(保留)注解说明,这种类型的注解会被保留到那个阶段. 有三个值:
+1.RetentionPolicy.SOURCE —— 这种类型的Annotations只在源代码级别保留,编译时就会被忽略
+2.RetentionPolicy.CLASS —— 这种类型的Annotations编译时被保留,在class文件中存在,但JVM将会忽略
+3.RetentionPolicy.RUNTIME —— 这种类型的Annotations将被JVM保留,所以他们能在运行时被JVM或其他使用反射机制的代码所读取和使用.</p>
 <p><strong>@Documented</strong></p>
-<p>Documented 注解表明这个注解应该被 javadoc工具记录. 默认情况下,javadoc是不包括注解的. 但如果声明注解时指定了 @Documented,则它会被 javadoc 之类的工具处理, 所以注解类型信息也会被包括在生成的文档中. 示例6进一步演示了使用 </p>
+<p>Documented 注解表明这个注解应该被 javadoc工具记录. 默认情况下,javadoc是不包括注解的. 但如果声明注解时指定了 @Documented,则它会被 javadoc 之类的工具处理, 所以注解类型信息也会被包括在生成的文档中. 示例6进一步演示了使用</p>
 <p><strong>@Scope</strong></p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818114808.png" alt="enter image description here"></p>
-<h3 id="Singleton的单例模式是如何起作用的（我只是个栗子）"><a href="#Singleton的单例模式是如何起作用的（我只是个栗子）" class="headerlink" title="@Singleton的单例模式是如何起作用的（我只是个栗子）"></a>@Singleton的单例模式是如何起作用的（我只是个栗子）</h3><p>该单例模式的前提是所使用的Component实例是同一个的情况下，而且任何自定义的Scope标签都有相同功能，具体实现如下：</p>
+<h3>@Singleton的单例模式是如何起作用的（我只是个栗子）</h3>
+<p>该单例模式的前提是所使用的Component实例是同一个的情况下，而且任何自定义的Scope标签都有相同功能，具体实现如下：</p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818141827.png" alt="enter image description here"></p>
 <p><img src="http://or9mw8j7a.bkt.clouddn.com/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170818142004.png" alt="enter image description here"></p>
-<h3 id="Qualifier的巧用（指哪打哪）"><a href="#Qualifier的巧用（指哪打哪）" class="headerlink" title="@Qualifier的巧用（指哪打哪）"></a>@Qualifier的巧用（指哪打哪）</h3><p>@Qualifier是用来给注解做注解的。它告诉Dagger依赖需求方 创建数据的时候使用哪个依赖提供方。</p>
+<h3>@Qualifier的巧用（指哪打哪）</h3>
+<p>@Qualifier是用来给注解做注解的。它告诉Dagger依赖需求方 创建数据的时候使用哪个依赖提供方。</p>
 <p>两个@Qualifier</p>
 <pre><code>@Qualifier
 public @interface ThemeNight {
@@ -140,7 +298,8 @@ public @interface ThemeNight {
 @Qualifier
 public @interface ThemeDay {
 }
-</code></pre><hr>
+</code></pre>
+<hr>
 <pre><code>@Module
 public class ThemeModule {
     @Provides
@@ -155,12 +314,14 @@ public class ThemeModule {
         return new Theme(&quot;night&quot;);
     }
 }
-</code></pre><hr>
+</code></pre>
+<hr>
 <pre><code>@Component
 public interface ThemeComponent{
     void inject(ThemeTest themeTest);
 }
-</code></pre><hr>
+</code></pre>
+<hr>
 <pre><code>public class ThemeTest {
     @Inject
     @ThemeDay
@@ -177,78 +338,217 @@ public interface ThemeComponent{
     }
 }
 </code></pre>
-  </section>
-</article>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    </div>
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=<img src="http://op0"
->
-  Tweet
-</a>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a> <a href="/tags/技术/">#技术</a> <a href="/tags/三方框架/">#三方框架</a>
+        </div>
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+    <!-- Comments -->
+    
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
+</div>
+        </section>
 
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2016/06/01/Dagger2/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>

@@ -1,139 +1,434 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>点击图标启动activity的过程 | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="点击图标启动activity的过程"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>点击图标启动activity的过程 - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/02/26/点击图标启动activity的过程/">点击图标启动activity的过程</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">二月 26 2018</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <p><img src="http://hi.csdn.net/attachment/201108/14/0_1313305334OkCc.gif" alt="enter image description here"></p>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/02/26/点击图标启动activity的过程/">
+                点击图标启动activity的过程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-02-26</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android源码学习/">Android源码学习</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p><img src="http://hi.csdn.net/attachment/201108/14/0_1313305334OkCc.gif" alt="enter image description here"></p>
 <p><strong>1.在ActivityStack.startActivityLocked（创建ActivityRecord）</strong></p>
 <p><strong>2.在ActivityStack.startActivityUncheckedLocked（创建TaskRecord）</strong></p>
-<p>3.startActivityLocked –&gt;<br>startActivityUncheckedLocked –&gt;<br>startActivityLocked –&gt;<br>resumeTopActivityLocked –&gt;<br>startPausingLocked<br><strong>-binder-&gt;</strong><br><strong>ApplicationThreadProxy.schedulePauseActivity –&gt;</strong> </p>
-<p><strong>（下面的两行是message的传递）</strong><br>ActivityThread.queueOrSendMessage –&gt;<br>H.handleMessage –&gt; </p>
-<p><strong>ActivityThread.handlePauseActivity（真正执行pause）</strong> </p>
-<p><strong>-binder-&gt;</strong><br><strong>ActivityManagerProxy.activityPaused –&gt;</strong><br><strong>ActivityStack.activityPaused（在stack中做一些pause之后的处理） –&gt;</strong><br>ActivityStack.completePauseLocked –&gt; </p>
-<p>ActivityStack.resumeTopActivityLocked(launcer已停止，需启动mainactivity) –&gt;  </p>
-<p>ActivityStack.startSpecificActivityLocked –&gt;<br><strong>ActivityManagerService.startProcessLocked(开始创建进程，并将ActivityThread添入其中)</strong></p>
-<p>ProcessRecord app = getProcessRecordLocked(processName, info.uid);<br>int pid = Process.start(“android.app.ActivityThread”,<br>                mSimpleProcessManagement ? app.processName : null, uid, uid,<br>                gids, debugFlags, null); </p>
-<p><strong>ActivityThread.main（启动ActivityThread）</strong><br><strong>-binder-&gt;</strong><br>ActivityManagerProxy.attachApplication </p>
+<p>3.startActivityLocked --&gt;<br>
+startActivityUncheckedLocked --&gt;
+startActivityLocked --&gt;
+resumeTopActivityLocked --&gt;
+startPausingLocked
+<strong>-binder-&gt;</strong>
+<strong>ApplicationThreadProxy.schedulePauseActivity --&gt;</strong></p>
+<p><strong>（下面的两行是message的传递）</strong>
+ActivityThread.queueOrSendMessage --&gt;
+H.handleMessage --&gt;</p>
+<p><strong>ActivityThread.handlePauseActivity（真正执行pause）</strong></p>
+<p><strong>-binder-&gt;</strong>
+<strong>ActivityManagerProxy.activityPaused --&gt;</strong>
+<strong>ActivityStack.activityPaused（在stack中做一些pause之后的处理） --&gt;</strong>
+ActivityStack.completePauseLocked --&gt;</p>
+<p>ActivityStack.resumeTopActivityLocked(launcer已停止，需启动mainactivity) --&gt;</p>
+<p>ActivityStack.startSpecificActivityLocked --&gt;
+<strong>ActivityManagerService.startProcessLocked(开始创建进程，并将ActivityThread添入其中)</strong></p>
+<p>ProcessRecord app = getProcessRecordLocked(processName, info.uid);<br>
+int pid = Process.start(&quot;android.app.ActivityThread&quot;,<br>
+mSimpleProcessManagement ? app.processName : null, uid, uid,<br>
+gids, debugFlags, null);</p>
+<p><strong>ActivityThread.main（启动ActivityThread）</strong>
+<strong>-binder-&gt;</strong>
+ActivityManagerProxy.attachApplication</p>
 <p>通过pid将processRecord取回，放在app变量中，然后对app的其它成员进行初始化，最后调用mMainStack.realStartActivityLocked执行真正的Activity启动操作</p>
-<p><strong>ActivityStack.realStartActivityLocked</strong><br><strong>-binder-&gt;</strong><br><strong>ApplicationThreadProxy.scheduleLaunchActivity –&gt;</strong> </p>
-<p>ActivityThread.queueOrSendMessage –&gt;<br><strong>ActivityThread.handleLaunchActivity（真正launcher new Activity）</strong> </p>
+<p><strong>ActivityStack.realStartActivityLocked</strong>
+<strong>-binder-&gt;</strong>
+<strong>ApplicationThreadProxy.scheduleLaunchActivity --&gt;</strong></p>
+<p>ActivityThread.queueOrSendMessage --&gt;
+<strong>ActivityThread.handleLaunchActivity（真正launcher new Activity）</strong></p>
 <p>这里首先调用performLaunchActivity函数来加载这个Activity类，即shy.luo.activity.MainActivity，然后调用它的onCreate函数，最后回到handleLaunchActivity函数时，再调用handleResumeActivity函数来使这个Activity进入Resumed状态，即会调用这个Activity的onResume函数，这是遵循Activity的生命周期的。</p>
-<p><strong>ActivityThread.performLaunchActivity –&gt;</strong></p>
-<p><strong>1函数前面是收集要启动的Activity的相关信息，主要package和component信息</strong><br><strong>2然后通过ClassLoader将shy.luo.activity.MainActivity类加载进来</strong><br><strong>3接下来是创建Application对象，这是根据AndroidManifest.xml配置文件中的Application标签的信息来创建的</strong><br><strong>4后面的代码主要创建Activity的上下文信息，并通过attach方法将这些上下文信息设置到MainActivity中去</strong><br><strong>5最后还要调用MainActivity的onCreate函数</strong></p>
+<p><strong>ActivityThread.performLaunchActivity --&gt;</strong></p>
+<p><strong>1函数前面是收集要启动的Activity的相关信息，主要package和component信息</strong>
+<strong>2然后通过ClassLoader将shy.luo.activity.MainActivity类加载进来</strong>
+<strong>3接下来是创建Application对象，这是根据AndroidManifest.xml配置文件中的Application标签的信息来创建的</strong>
+<strong>4后面的代码主要创建Activity的上下文信息，并通过attach方法将这些上下文信息设置到MainActivity中去</strong>
+<strong>5最后还要调用MainActivity的onCreate函数</strong></p>
 <p>这里不是直接调用MainActivity的onCreate函数，而是通过mInstrumentation的callActivityOnCreate函数来间接调用，前面我们说过，mInstrumentation在这里的作用是监控Activity与系统的交互操作，相当于是系统运行日志。</p>
-<p> 一. Step1 - Step 11：Launcher通过Binder进程间通信机制通知ActivityManagerService，它要启动一个Activity；</p>
+<p>一. Step1 - Step 11：Launcher通过Binder进程间通信机制通知ActivityManagerService，它要启动一个Activity；</p>
 <p>二. Step 12 - Step 16：ActivityManagerService通过Binder进程间通信机制通知Launcher进入Paused状态；</p>
 <p>三. Step 17 - Step 24：Launcher通过Binder进程间通信机制通知ActivityManagerService，它已经准备就绪进入Paused状态，于是ActivityManagerService就创建一个新的进程，用来启动一个ActivityThread实例，即将要启动的Activity就是在这个ActivityThread实例中运行；</p>
 <p>四. Step 25 - Step 27：ActivityThread通过Binder进程间通信机制将一个ApplicationThread类型的Binder对象传递给ActivityManagerService，以便以后ActivityManagerService能够通过这个Binder对象和它进行通信；</p>
-<p>五. Step 28 - Step 35：ActivityManagerService通过Binder进程间通信机制通知ActivityThread，现在一切准备就绪，它可以真正执行Activity的启动操作了。 </p>
+<p>五. Step 28 - Step 35：ActivityManagerService通过Binder进程间通信机制通知ActivityThread，现在一切准备就绪，它可以真正执行Activity的启动操作了。</p>
 
-  </section>
-</article>
+    </div>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=<img src="http://hi."
->
-  Tweet
-</a>
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/源码/">#源码</a> <a href="/tags/技术/">#技术</a> <a href="/tags/android/">#android</a>
+        </div>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    <!-- Comments -->
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+</div>
+        </section>
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
-
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2018/02/26/点击图标启动activity的过程/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>

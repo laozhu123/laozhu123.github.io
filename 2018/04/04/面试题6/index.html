@@ -1,44 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>Android面试6 | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Android面试6"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Android面试6 - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/04/04/面试题6/">Android面试6</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">四月 04 2018</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <p>1.高效加载大图片</p>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/04/04/面试题6/">
+                Android面试6
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-04-04</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android面试/">Android面试</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>1.高效加载大图片</p>
 <pre><code>BitmapFactory.Options options = new BitmapFactory.Options();  
 options.inJustDecodeBounds = true;  
 BitmapFactory.decodeResource(getResources(), R.id.myimage, options);  
@@ -60,8 +193,12 @@ public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
     options.inJustDecodeBounds = false;  
     return BitmapFactory.decodeResource(res, resId, options);  
 }  
-</code></pre><p>2.map的内部实现<br>    Set&lt;Map.Entry<k, v="">&gt; entrySet();<br>    Iterator&lt;Entry<k,v>&gt; i = entrySet().iterator();</k,v></k,></p>
-<p>3.Android 中Serializable与Parcelable区别？<br>    两种都是用于支持序列化、反序列化话操作，两者最大的区别在于存储媒介的不同，Serializable使用IO读写存储在硬盘上，而Parcelable是直接在内存中读写，很明显内存的读写速度通常大于IO读写，所以在Android中通常优先选择Parcelable。</p>
+</code></pre>
+<p>2.map的内部实现
+	Set&lt;Map.Entry&lt;K, V&gt;&gt; entrySet();
+	Iterator&lt;Entry&lt;K,V&gt;&gt; i = entrySet().iterator();</p>
+<p>3.Android 中Serializable与Parcelable区别？
+	两种都是用于支持序列化、反序列化话操作，两者最大的区别在于存储媒介的不同，Serializable使用IO读写存储在硬盘上，而Parcelable是直接在内存中读写，很明显内存的读写速度通常大于IO读写，所以在Android中通常优先选择Parcelable。</p>
 <pre><code>1.       整个读写全是在内存中进行，主要是通过malloc()、realloc()、memcpy()等内存操作进行，所以效率比JAVA序列化中使用外部存储器会高很多；
 
 2.       读写时是4字节对齐的，可以看到#define PAD_SIZE(s) (((s)+3)&amp;~3)这句宏定义就是在做这件事情；
@@ -69,7 +206,7 @@ public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
 3.       如果预分配的空间不够时newSize = ((mDataSize+len)*3)/2;会一次多分配50%；
 
 4.       对于普通数据，使用的是mData内存地址，对于IBinder类型的数据以及FileDescriptor使用的是mObjects内存地址。后者是通过flatten_binder()和unflatten_binder()
-         实现的，目的是反序列化时读出的对象就是原对象而不用重新new一个新对象。
+		 实现的，目的是反序列化时读出的对象就是原对象而不用重新new一个新对象。
 
 
 public static final Parcelable.Creator&lt;MyColor&gt; CREATOR  
@@ -77,7 +214,7 @@ public static final Parcelable.Creator&lt;MyColor&gt; CREATOR
     public MyColor createFromParcel(Parcel in) {  
         return new MyColor(in);  
     }  
-
+      
     public MyColor[] newArray(int size) {  
         return new MyColor[size];  
     }  
@@ -93,13 +230,14 @@ MyColor(Parcel in){
 public void writeToParcel(Parcel dest, int flags) {  
     dest.writeInt(color);  
 }  
-</code></pre><p>4.Binder也与Parcel相关，都是使用的Parcel的write<em>和read</em>方法</p>
+</code></pre>
+<p>4.Binder也与Parcel相关，都是使用的Parcel的write_和read_方法</p>
 <pre><code>http://www.cnblogs.com/zhangxinyan/p/3487909.html
 
 客户端获取到的是proxy，服务端返回的是stub，这两者之间通过binder驱动来对应的
 
 ublic static com.example.laozhu.aidl.Helo asInterface(proxy){
-    return new com.example.laozhu.aidl.Helo.Stub.Proxy(obj);
+	return new com.example.laozhu.aidl.Helo.Stub.Proxy(obj);
 }
 
 其实Binder驱动会在内核为process创建一個binder_proc 结构提，在binder_proc中保存着四个RB Tree。
@@ -108,10 +246,11 @@ ublic static com.example.laozhu.aidl.Helo asInterface(proxy){
 一个tree保存binder_node；另外两个tree保存binder_ref,这两个tree的内容其实都一样，只是为了便于搜索，就建了两个不同key的tree。
 
 这三个tree都具体存写什么东西？
-    --&gt;这样说，一个process里有个实体对象，就有多少个binder_node；一个process有多少个代理对象指向远端，就有多少个binder_ref.
+	--&gt;这样说，一个process里有个实体对象，就有多少个binder_node；一个process有多少个代理对象指向远端，就有多少个binder_ref.
 
 ProcessA向binder驱动传入一个handle，binder驱动就会根据handle在tree中找到对应的binder_ref。 binder_ref里面有一个node变量， 它就是对应的实体对象的node的地址，靠它找到对应的binder_node。然后在binder_node里面，也有一个变量：cookie，它就是BBinder的地址。找到BBinder就OK了。
-</code></pre><p><img src="https://images0.cnblogs.com/blog/575077/201401/02143950-a36c34c4f1aa402cb41624c7d6956877.png" alt=""></p>
+</code></pre>
+<p>&lt;img src=&quot;https://images0.cnblogs.com/blog/575077/201401/02143950-a36c34c4f1aa402cb41624c7d6956877.png&quot; alt=&quot;&quot;&gt;</p>
 <pre><code>this.attachInterface(this, DESCRIPTOR);
 
 而在onServiceConnected中的调用为：
@@ -122,81 +261,218 @@ mService = IBookManager.Stub.asInterface(service);
 
 我们即可以得出结论：同进程时，在onServiceConnection中获取到的是stub，而在不同进程中获取到的是binderProxy，该对象是在binder驱动中进行映射后的对象。
 
-共享内存块
-</code></pre>
-  </section>
-</article>
+共享内存块</code></pre>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    </div>
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=1.高效加载大图片</p>
-<pre><"
->
-  Tweet
-</a>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/基础/">#基础</a> <a href="/tags/Android/">#Android</a> <a href="/tags/Java/">#Java</a> <a href="/tags/面试/">#面试</a>
+        </div>
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+    <!-- Comments -->
+    
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
+</div>
+        </section>
 
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2018/04/04/面试题6/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>

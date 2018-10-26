@@ -1,48 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>Android面试7 | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Android面试7"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Android面试7 - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/04/04/面试题7/">Android面试7</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">四月 04 2018</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <p>1.fragment预加载<br>    通过使用setUserVisibleHint和getUserVisibleHint来完成</p>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/04/04/面试题7/">
+                Android面试7
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-04-04</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android面试/">Android面试</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>1.fragment预加载
+	通过使用setUserVisibleHint和getUserVisibleHint来完成</p>
 <pre><code>public void setUserVisibleHint(boolean isVisibleToUser) {
     super.setUserVisibleHint(isVisibleToUser);
     if(isVisibleToUser &amp;&amp; viewIsVisible)
-        initData();
+    	initData();
 
 }
 onCreate(){
@@ -50,7 +184,8 @@ onCreate(){
         initData();
     }
 }
-</code></pre><p>2.Hashmap与HashTable的区别</p>
+</code></pre>
+<p>2.Hashmap与HashTable的区别</p>
 <pre><code>两者都是通过数组加链表的方式完成的，其中通过hashcode获取相应的hash值，而后通过该值寻找到相应链表的头，而后遍历链表获取到相应的entry对象
 
 HashMap是支持null键和null值的，而HashTable在遇到null时，会抛出NullPointerException异常。这并不是因为HashTable有什么特殊的实现层面的原因导致不能支持null键和null值，这仅仅是因为HashMap在实现时对null做了特殊处理，将null的hashCode值定为了0，从而将其存放在哈希表的第0个bucket中。我们一put方法为例，看一看代码的细节：
@@ -58,32 +193,33 @@ HashMap是支持null键和null值的，而HashTable在遇到null时，会抛出N
 HashMap继承AbstractMap，HashTable继承dictionary，共同实现Serializable、Clonable，最后HashTable实现了Map，而AbstractMap实现了Map
 
 Entry对象唯一表示一个键值对，有四个属性：
-    -K key 键对象
-    -V value 值对象
-    -int hash 键对象的hash值
-    -Entry entry 指向链表中下一个Entry对象，可为null，表示当前Entry对象在链表尾部
+	-K key 键对象
+	-V value 值对象
+	-int hash 键对象的hash值
+	-Entry entry 指向链表中下一个Entry对象，可为null，表示当前Entry对象在链表尾部
 
 
 也就是说HashTable会尽量使用素数、奇数。而HashMap则总是使用2的幂作为哈希表的大小。我们知道当哈希表的大小为素数时，简单的取模哈希的结果会更加均匀（具体证明，见这篇文章），所以单从这一点上看，HashTable的哈希表大小选择，似乎更高明些。但另一方面我们又知道，在取模计算时，如果模数是2的幂，那么我们可以直接使用位运算来得到结果，效率要大大高于做除法。所以从hash计算的效率上，又是HashMap更胜一筹。
 
 HashTable： 
-    11   2*n+1
+	11   2*n+1
 
 HashMap：
-    16或（2^n）   n*2
+	16或（2^n）   n*2
 
 
 我们说HashTable是同步的，HashMap不是
 
 使用new ConcurrentHashMap()，Collections.synchronizedMap(new Map)可以实现同步,其中ConcurrentHashMap使用segment将数据进行分段存储，同时为每段数据的操作进行加锁，所有速度比较快。而相对的Collections则是将相应的操作进行了synchronized加锁而已。
-</code></pre><p><img src="http://img.blog.csdn.net/20150528211309106" alt="这里写图片描述" title=""></p>
+</code></pre>
+<p>&lt;img src=&quot;http://img.blog.csdn.net/20150528211309106&quot; alt=&quot;这里写图片描述&quot; title=&quot;&quot;&gt;</p>
 <p>3.自定义View</p>
 <pre><code>getMeasuredWidth()、getMeasuredHeight()必须在onMeasure之后使用才有效
 
 getWidth()与getHeight()方法必须在layout(int l, int t, int r, int b)执行之后才有效
 
 
-    public final int getMeasuredWidth() {
+	public final int getMeasuredWidth() {
         return mMeasuredWidth &amp; MEASURED_SIZE_MASK;
     }
 
@@ -201,7 +337,7 @@ protected void measureChildWithMargins(View child,
 
 
 layout部分
-    View的layout，ViewGroup的layout实际是调用View的layout
+	View的layout，ViewGroup的layout实际是调用View的layout
  public void layout(int l, int t, int r, int b) {
     ......
     //实质都是调用setFrame方法把参数分别赋值给mLeft、mTop、mRight和mBottom这几个变量
@@ -223,19 +359,20 @@ layout部分
 
 draw部分
 
-    // Step 1, draw the background, if needed
+	// Step 1, draw the background, if needed
 
-        // skip step 2 &amp; 5 if possible (common case)
+		// skip step 2 &amp; 5 if possible (common case)
 
-    // Step 2, save the canvas&apos; layers
-    // Step 3, draw the content
-    // Step 4, draw the children
-    // Step 5, draw the fade effect and restore layers
-    // Step 6, draw decorations (scrollbars)
+	// Step 2, save the canvas' layers
+	// Step 3, draw the content
+	// Step 4, draw the children
+	// Step 5, draw the fade effect and restore layers
+	// Step 6, draw decorations (scrollbars)
 
 
 区分View动画和ViewGroup布局动画，前者指的是View自身的动画，可以通过setAnimation添加，后者是专门针对ViewGroup显示内部子视图时设置的动画，可以在xml布局文件中对ViewGroup设置layoutAnimation属性（譬如对LinearLayout设置子View在显示时出现逐行、随机、下等显示等不同动画效果）。
-</code></pre><p>4.View的invalidate和postInvalidate方法源码分析</p>
+</code></pre>
+<p>4.View的invalidate和postInvalidate方法源码分析</p>
 <pre><code>直接调用invalidate方法.请求重新draw，但只会绘制调用者本身。
 
 在上面分析View的三步绘制流程中最后都有调运一个叫invalidate的方法
@@ -288,7 +425,7 @@ public void postInvalidate() {
 
 
 public void postInvalidateDelayed(long delayMilliseconds) {
-    // We try only with the AttachInfo because there&apos;s no point in invalidating
+    // We try only with the AttachInfo because there's no point in invalidating
     // if we are not attached to our window
     final AttachInfo attachInfo = mAttachInfo;
     //核心，实质就是调运了ViewRootImpl.dispatchInvalidateDelayed方法
@@ -315,11 +452,16 @@ case MSG_INVALIDATE:
 ......
 }
 ......
-</code></pre><p>}</p>
-<p>直接调用invalidate方法.请求重新draw，但只会绘制调用者本身。<br>触发setSelection方法。请求重新draw，但只会绘制调用者本身。<br>触发setVisibility方法。 当View可视状态在INVISIBLE转换VISIBLE时会间接调用invalidate方法，继而绘制该View。当View的可视状态在INVISIBLE\VISIBLE 转换为GONE状态时会间接调用requestLayout和invalidate方法，同时由于View树大小发生了变化，所以会请求measure过程以及draw过程，同样只绘制需要“重新绘制”的视图。<br>触发setEnabled方法。请求重新draw，但不会重新绘制任何View包括该调用者本身。<br>触发requestFocus方法。请求View树的draw过程，只绘制“需要重绘”的View。</p>
+</code></pre>
+<p>}</p>
+<p>直接调用invalidate方法.请求重新draw，但只会绘制调用者本身。
+触发setSelection方法。请求重新draw，但只会绘制调用者本身。
+触发setVisibility方法。 当View可视状态在INVISIBLE转换VISIBLE时会间接调用invalidate方法，继而绘制该View。当View的可视状态在INVISIBLE\VISIBLE 转换为GONE状态时会间接调用requestLayout和invalidate方法，同时由于View树大小发生了变化，所以会请求measure过程以及draw过程，同样只绘制需要“重新绘制”的视图。
+触发setEnabled方法。请求重新draw，但不会重新绘制任何View包括该调用者本身。
+触发requestFocus方法。请求View树的draw过程，只绘制“需要重绘”的View。</p>
 <pre><code>requestLayout方法分析
 
-     public void requestLayout() {
+	 public void requestLayout() {
         ......
         if (mParent != null &amp;&amp; !mParent.isLayoutRequested()) {
             //由此向ViewParent请求布局
@@ -351,80 +493,218 @@ requestLayout()方法会调用measure过程和layout过程，不会调用draw过
 
 requestLayout：当view确定自身已经不再适合现有的区域时，该view本身调用这个方法要求parent view重新调用他的onMeasure onLayout来对重新设置自己位置。
 特别的当view的layoutparameter发生改变，并且它的值还没能应用到view上，这时候适合调用这个方法。
-invalidate：View本身调用迫使view重画。
-</code></pre>
-  </section>
-</article>
+invalidate：View本身调用迫使view重画。</code></pre>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    </div>
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=1.fragment预加载<br>   "
->
-  Tweet
-</a>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/基础/">#基础</a> <a href="/tags/Android/">#Android</a> <a href="/tags/Java/">#Java</a> <a href="/tags/面试/">#面试</a>
+        </div>
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+    <!-- Comments -->
+    
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
+</div>
+        </section>
 
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2018/04/04/面试题7/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>

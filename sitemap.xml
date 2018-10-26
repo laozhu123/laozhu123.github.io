@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-10-26T10:12:55.779Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2018-10-26T10:10:01.899Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%987/</loc>
     
     <lastmod>2018-05-23T14:49:55.418Z</lastmod>
@@ -16,7 +30,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%984/</loc>
+    <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%981/</loc>
     
     <lastmod>2018-05-23T14:49:55.417Z</lastmod>
     
@@ -30,13 +44,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%982/</loc>
-    
-    <lastmod>2018-05-23T14:49:55.417Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%983/</loc>
     
     <lastmod>2018-05-23T14:49:55.417Z</lastmod>
@@ -44,14 +51,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%981/</loc>
+    <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%984/</loc>
     
     <lastmod>2018-05-23T14:49:55.417Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/02/06/python%E7%88%AC%E8%99%ABscrapy%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://yoursite.com/2018/04/04/%E9%9D%A2%E8%AF%95%E9%A2%982/</loc>
+    
+    <lastmod>2018-05-23T14:49:55.417Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/09/%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%B1%BB/</loc>
     
     <lastmod>2018-05-23T14:49:55.416Z</lastmod>
     
@@ -65,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/09/%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%B1%BB/</loc>
-    
-    <lastmod>2018-05-23T14:49:55.416Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/03/21/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</loc>
     
     <lastmod>2018-05-23T14:49:55.416Z</lastmod>
@@ -79,14 +86,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/02/06/python%E6%8A%93%E5%A6%B9%E5%AD%90/</loc>
+    <loc>http://yoursite.com/2018/02/06/python%E7%88%AC%E8%99%ABscrapy%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2018-05-23T14:49:55.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/06/01/compileSdkVersion,%20minSdkVersion%EF%BC%8C%20targetSdkVersion%E8%BF%99%E4%B8%89%E5%85%84%E5%BC%9F/</loc>
     
     <lastmod>2018-05-23T14:49:55.415Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/06/01/compileSdkVersion,%20minSdkVersion%EF%BC%8C%20targetSdkVersion%E8%BF%99%E4%B8%89%E5%85%84%E5%BC%9F/</loc>
+    <loc>http://yoursite.com/2018/02/06/python%E6%8A%93%E5%A6%B9%E5%AD%90/</loc>
     
     <lastmod>2018-05-23T14:49:55.415Z</lastmod>
     
@@ -100,14 +114,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/08/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%844%E4%B8%AD%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5/</loc>
+    <loc>http://yoursite.com/2018/04/09/OkHttp/</loc>
     
     <lastmod>2018-05-23T14:49:55.414Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/09/OkHttp/</loc>
+    <loc>http://yoursite.com/2018/04/08/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%844%E4%B8%AD%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5/</loc>
     
     <lastmod>2018-05-23T14:49:55.414Z</lastmod>
     

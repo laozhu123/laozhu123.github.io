@@ -1,44 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <title>线程池原理 | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="来自贫穷小山村，但我想回去">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="塑料葫芦娃">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="线程池原理"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="来自贫穷小山村，但我想回去" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="生死看淡，不服就干"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>线程池原理 - 生死看淡，不服就干</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
 </head>
 
+
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2018/03/21/线程池/">线程池原理</a>
-  </h1>
+<div class="container">
 
-  <section class="article-meta">
-    <p class="article-date">三月 21 2018</p>
-  </section>
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
-  <section class="article-entry">
-    <h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>1.ExecutorService 有 submit( )、shutDown、invokeAll（与submit对应，只是多个callable的集合）</p>
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/03/21/线程池/">
+                线程池原理
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-03-21</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/java基础学习/">java基础学习</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h3>线程池</h3>
+<h4>简介</h4>
+<p>1.ExecutorService 有 submit( )、shutDown、invokeAll（与submit对应，只是多个callable的集合）</p>
 <p>2.Future future = ExecutorService.submit(new FutureTask(callable));</p>
 <p>2.ThreadPoolExecutor 继承自 ExecutorServcie</p>
 <p>3.Executors 是创建ThreadPoolExecutor的工具类</p>
@@ -56,99 +191,260 @@
 <li>Integer.MAX_VALUE}, you allow the pool to accommodate an arbitrary</li>
 <li>number of concurrent tasks.**</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int c = ctl.get();</span><br><span class="line">if (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">if (addWorker(command, true))</span><br><span class="line">return;</span><br><span class="line">c = ctl.get();</span><br><span class="line">&#125;</span><br><span class="line">if (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">int recheck = ctl.get();</span><br><span class="line">if (! isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">reject(command);</span><br><span class="line">else if (workerCountOf(recheck) == 0)</span><br><span class="line">addWorker(null, false);</span><br><span class="line">&#125;</span><br><span class="line">else if (!addWorker(command, false))</span><br><span class="line">reject(command);</span><br></pre></td></tr></table></figure>
-<p>SynchronousQueue 没有缓冲队列，使用一一配对的方式，take和put搭配使用，有默认是不公平的，也就是后进先出<br>LinkedBlockingQueue 对于maximumPoolSize是没有用的<br>ArrayBlockingQueue</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor中有一个控制状态的属性叫ctl，它是一个AtomicInteger类型的变量，它包含两个概念：</span><br><span class="line"></span><br><span class="line">workerCount：表明当前有效的线程数</span><br><span class="line">runState：表明当前线程池的状态，是否处于Running，Shutdown，Stop，Tidying，Terminate五种状态。</span><br><span class="line">为了把这两种状态放到一个int值中保存，代码中限定了workerCount的值是2^29-1，因为还有五种状态需要表示，需要3位才能表示五种状态，所以会有29位来表示workerCount，而剩下的3位来表示当前线程池的状态。</span><br></pre></td></tr></table></figure>
-<h4 id="几种ExecutorService的实现类"><a href="#几种ExecutorService的实现类" class="headerlink" title="几种ExecutorService的实现类"></a>几种ExecutorService的实现类</h4><p>1、newCachedThreadPool<br>初始没有核心线程，最大线程数没有限制，使用同步队列，有60秒的idle时间，当idle时间到了而thread还没有工作的话就讲该thread销毁，线程可重用。<br>These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks.<br>多用于运行大量的短运行周期的异步任务。</p>
-<p>new ThreadPoolExecutor(0, Integer.MAX_VALUE,60L,<br>TimeUnit.SECONDS,<br>new SynchronousQueue<runnable>());</runnable></p>
-<p>2、newFixedThreadPool<br>生成固定数量的核心线程数，最大线程数等于核心线程数<br>Creates a thread pool that reuses a fixed number of threads</p>
-<p>new ThreadPoolExecutor(nThreads, nThreads,<br>0L, TimeUnit.MILLISECONDS,<br>new LinkedBlockingQueue<runnable>());</runnable></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int c = ctl.get();</span><br><span class="line">if (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">if (addWorker(command, true))</span><br><span class="line">return;</span><br><span class="line">c = ctl.get();</span><br><span class="line">&#125;</span><br><span class="line">if (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">int recheck = ctl.get();</span><br><span class="line">if (! isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">reject(command);</span><br><span class="line">else if (workerCountOf(recheck) == 0)</span><br><span class="line">addWorker(null, false);</span><br><span class="line">&#125;</span><br><span class="line">else if (!addWorker(command, false))</span><br><span class="line">reject(command);</span><br></pre></td></tr></table></figure></p>
+<p>SynchronousQueue 没有缓冲队列，使用一一配对的方式，take和put搭配使用，有默认是不公平的，也就是后进先出
+LinkedBlockingQueue 对于maximumPoolSize是没有用的
+ArrayBlockingQueue</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor中有一个控制状态的属性叫ctl，它是一个AtomicInteger类型的变量，它包含两个概念：</span><br><span class="line"></span><br><span class="line">workerCount：表明当前有效的线程数</span><br><span class="line">runState：表明当前线程池的状态，是否处于Running，Shutdown，Stop，Tidying，Terminate五种状态。</span><br><span class="line">为了把这两种状态放到一个int值中保存，代码中限定了workerCount的值是2^29-1，因为还有五种状态需要表示，需要3位才能表示五种状态，所以会有29位来表示workerCount，而剩下的3位来表示当前线程池的状态。</span><br></pre></td></tr></table></figure></p>
+<h4>几种ExecutorService的实现类</h4>
+<p>1、newCachedThreadPool
+初始没有核心线程，最大线程数没有限制，使用同步队列，有60秒的idle时间，当idle时间到了而thread还没有工作的话就讲该thread销毁，线程可重用。
+These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks.
+多用于运行大量的短运行周期的异步任务。</p>
+<p>new ThreadPoolExecutor(0, Integer.MAX_VALUE,60L,
+TimeUnit.SECONDS,
+new SynchronousQueue&lt;Runnable&gt;());</p>
+<p>2、newFixedThreadPool
+生成固定数量的核心线程数，最大线程数等于核心线程数
+Creates a thread pool that reuses a fixed number of threads</p>
+<p>new ThreadPoolExecutor(nThreads, nThreads,
+0L, TimeUnit.MILLISECONDS,
+new LinkedBlockingQueue&lt;Runnable&gt;());</p>
 <p>3、newScheduledThreadPool</p>
-<p>进行延迟或周期性调用任务，使用ThreadPoolExecutor进行线程池创建。<br>内部有一个DelayedWorkQueue，该队列同时具有PriorityQueue（优先级大的元素会放到队首）和DelayQueue（如果队列里第一个元素的getDelay返回值大于0，则take调用会阻塞）的功能。<br>将传入的任务封装成ScheduledFutureTask，该类继承FutureTask<br>Creates a thread pool that can schedule commands to run after a given delay, or to execute periodically.</p>
+<p>进行延迟或周期性调用任务，使用ThreadPoolExecutor进行线程池创建。
+内部有一个DelayedWorkQueue，该队列同时具有PriorityQueue（优先级大的元素会放到队首）和DelayQueue（如果队列里第一个元素的getDelay返回值大于0，则take调用会阻塞）的功能。
+将传入的任务封装成ScheduledFutureTask，该类继承FutureTask
+Creates a thread pool that can schedule commands to run after a given delay, or to execute periodically.</p>
 <p>new ScheduledThreadPoolExecutor(corePoolSize);</p>
-<p>4、newSingleThreadExecutor<br>创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务。如果这个唯一的线程因为异常结束，那么会有一个新的线程替代它。此线程池保证所有任务的执行顺序按照任务的提交顺序执行。</p>
-<p>new FinalizableDelegatedExecutorService<br>(new ThreadPoolExecutor(1, 1,<br>0L, TimeUnit.MILLISECONDS,<br>new LinkedBlockingQueue<runnable>()));</runnable></p>
+<p>4、newSingleThreadExecutor
+创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务。如果这个唯一的线程因为异常结束，那么会有一个新的线程替代它。此线程池保证所有任务的执行顺序按照任务的提交顺序执行。</p>
+<p>new FinalizableDelegatedExecutorService
+(new ThreadPoolExecutor(1, 1,
+0L, TimeUnit.MILLISECONDS,
+new LinkedBlockingQueue&lt;Runnable&gt;()));</p>
 <p>5、newSingleThreadScheduledExecutor</p>
 <p>就是前面两者功能的结合</p>
-<p>new DelegatedScheduledExecutorService<br>(new ScheduledThreadPoolExecutor(1));</p>
+<p>new DelegatedScheduledExecutorService
+(new ScheduledThreadPoolExecutor(1));</p>
 <p>6、newWorkStealingPool</p>
 <p>创建持有足够线程的线程池来支持给定的并行级别，并通过使用多个队列，减少竞争，它需要穿一个并行级别的参数，如果不传，则被设定为默认的CPU数量。</p>
-<p>new ForkJoinPool<br>(parallelism,<br>ForkJoinPool.defaultForkJoinWorkerThreadFactory,<br>null, true);</p>
+<p>new ForkJoinPool
+(parallelism,
+ForkJoinPool.defaultForkJoinWorkerThreadFactory,
+null, true);</p>
 <p>7、ForkJoinPool</p>
 <p>支持大任务分解成小任务的线程池，这是Java8新增线程池，通常配合ForkJoinTask接口的子类RecursiveAction或RecursiveTask使用。</p>
 
-  </section>
-</article>
+    </div>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="http://img1.imgtn.bdimg.com/it/u=3268839804,809061049&fm=26&gp=0.jpg" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+    
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text= id="线程池"><a href="#"
->
-  Tweet
-</a>
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/源码/">#源码</a> <a href="/tags/java/">#java</a> <a href="/tags/基础/">#基础</a>
+        </div>
+    
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
+    <!-- Comments -->
+    
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+</div>
+        </section>
 
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
-
-  </section>
+    </div>
 </div>
 
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+</div>
 
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://yoursite.com/2018/03/21/线程池/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/一些特殊类/">一些特殊的类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/09/OkHttp/">OkHttp</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Android中当item数量超过一定大小RecyclerView高度固定/">Android中当item数量超过一定大小Recy</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/04/08/Java线程池的4中拒绝策略/">java线程池的4种拒绝模式</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
-  
-</main>
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android三方库/">Android三方库</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/python/">python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android源码学习/">Android源码学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/java基础学习/">java基础学习</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
 
 </body>
+
 </html>
